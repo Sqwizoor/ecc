@@ -45,7 +45,7 @@ const events = [
   },
   {
     id: 2,
-    name: "Prayer & Healing Service",
+  name: "Prayer & Healing Service",
     price: 0,
     originalPrice: 0,
     duration: "1.5 hours",
@@ -68,7 +68,7 @@ const events = [
     capacity: 50,
     attendees: 1,
     image: "/room6.jpeg",
-    features: ["In-depth Bible Teaching", "Group Discussion", "Q&A Session"],
+  features: ["In-depth Bible Teaching", "Group Discussion", "Q&A Session"],
     amenities: [
       { icon: Users, name: "Study Group" },
       { icon: Clock, name: "Weekly Workshop" },
@@ -80,22 +80,22 @@ const events = [
 const addOns = [
   {
     id: "meal-service",
-    name: "Community Meal",
+  name: "Community Meal",
     description: "Join us for fellowship dinner after the service",
     price: 25,
     unit: "per person"
   },
   {
     id: "childcare",
-    name: "Children's Ministry",
-    description: "Professional childcare during adult services",
+  name: "Children’s Ministry",
+  description: "Professional childcare during adult services",
     price: 15,
     unit: "per child"
   },
   {
     id: "transport",
-    name: "Transportation Service",
-    description: "Pickup and drop-off service for elderly and disabled",
+  name: "Transportation Service",
+  description: "Pickup and drop‑off service for elderly and disabled",
     price: 20,
     unit: "per person"
   },

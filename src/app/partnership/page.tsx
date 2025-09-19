@@ -58,7 +58,7 @@ const donationOptions = [
     id: "yearly",
     title: "Annual Partner",
     amount: "R2000 - R10000",
-    description: "Make a lasting impact on our church's vision to change lives and produce future leaders",
+  description: "Make a lasting impact on our church’s vision to change lives and produce future leaders",
     features: ["Annual impact report", "Personal meeting with Apostle Elijah", "Priority prayer ministry", "Leadership development mentorship", "Special recognition"],
     popular: false,
     icon: Crown,
@@ -96,7 +96,7 @@ Phone: ${donorInfo.phone}
 💬 **Message:**
 ${donorInfo.message || "I want to support the ministry and help change lives."}
 
-🙏 Looking forward to partnering with you in God's work!`;
+🙏 Looking forward to partnering with you in God’s work!`;
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
     window.open(`https://wa.me/27762073299?text=${encodedMessage}`, '_blank');
@@ -143,7 +143,7 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              "DON'T WAIT FOR SOMEBODY ELSE TO DO IT, PLAY YOUR PART IN SOMEONE'S LIFE." - Matthew 25:35-40. 
+              “DON’T WAIT FOR SOMEBODY ELSE TO DO IT, PLAY YOUR PART IN SOMEONE’S LIFE.” - Matthew 25:35-40. 
               Join us in changing lives through your faithful partnership.
             </motion.p>
 
@@ -280,7 +280,7 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
               Complete Your Partnership
             </motion.h2>
             <motion.p variants={itemFadeUp} className="text-xl text-gray-600">
-              Fill in your details below and we'll connect with you to set up your partnership.
+              Fill in your details below and we’ll connect with you to set up your partnership.
             </motion.p>
           </motion.div>
 
@@ -371,8 +371,8 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Matthew 25:35-40</h3>
                         <p className="text-gray-700 text-sm italic">
-                          "For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink... 
-                          Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me."
+                          “For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink... 
+                          Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.”
                         </p>
                       </div>
                     </div>
@@ -414,7 +414,7 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
               Your Partnership Impact
             </motion.h2>
             <motion.p variants={itemFadeUp} className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how your faithful giving is transforming lives and building God's kingdom.
+              See how your faithful giving is transforming lives and building God’s kingdom.
             </motion.p>
           </motion.div>
 
@@ -435,7 +435,7 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
               {
                 icon: Heart,
                 title: "Healing Ministry", 
-                description: "Prayer for the sick, broken, and those seeking God's restoration",
+                description: "Prayer for the sick, broken, and those seeking God’s restoration",
                 impact: "Countless testimonies"
               },
               {
@@ -493,12 +493,12 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
             viewport={{ once: true }}
           >
             <div className="bg-white rounded-2xl p-8 shadow-xl border border-emerald-200 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Apostle Elijah's Heart</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Apostle Elijah’s Heart</h3>
               <p className="text-gray-600 italic leading-relaxed">
-                "God changed my life from the streets, and now He can change others too. 
+                “God changed my life from the streets, and now He can change others too. 
                 Through your partnership, we return to those same streets not just to remember our journey, 
                 but to lift others up and show them the same love Christ showed us. 
-                Without being kind to one another, we can't please God."
+                Without being kind to one another, we can’t please God.”
               </p>
             </div>
           </motion.div>

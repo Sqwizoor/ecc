@@ -25,7 +25,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-// Apostle Elijah's journey timeline
+// Apostle Elijah’s journey timeline
 const milestones = [
   {
     year: "Early Life",
@@ -35,20 +35,20 @@ const milestones = [
   },
   {
     year: "Divine Encounter",
-    title: "God's Calling",
-    description: "Through years of hardship, God began to change Elijah's life. He received the calling to serve the Lord and minister to others.",
+    title: "God’s Calling",
+    description: "Through years of hardship, God began to change Elijah’s life. He received the calling to serve the Lord and minister to others.",
     icon: Cross
   },
   {
     year: "Transformation",
     title: "New Life in Christ",
-    description: "Elijah's life was completely transformed by God's grace. He discovered his purpose: if God changed him, He can change others too.",
+    description: "Elijah’s life was completely transformed by God’s grace. He discovered his purpose: if God changed him, He can change others too.",
     icon: Star
   },
   {
     year: "Ministry Begins",
     title: "Return to the Streets",
-    description: "With a heart of compassion, Apostle Elijah returned to the streets - not as one needing help, but as one bringing hope.",
+    description: "With a heart of compassion, Apostle Elijah returned to the streets — not as one needing help, but as one bringing hope.",
     icon: Users
   },
   {
@@ -91,7 +91,7 @@ const values = [
   {
     icon: Heart,
     title: "Kindness & Compassion",
-    description: "\"Without being kind to one another we can't please God\" - Apostle Elijah's core belief."
+    description: "“Without being kind to one another we can’t please God” — Apostle Elijah’s core belief."
   },
   {
     icon: Cross,
@@ -101,7 +101,7 @@ const values = [
   {
     icon: Hand,
     title: "Healing Ministry",
-    description: "Focused on changing lives, healing hearts, and demonstrating God's restorative power."
+    description: "Focused on changing lives, healing hearts, and demonstrating God’s restorative power."
   },
   {
     icon: Crown,
@@ -114,7 +114,7 @@ const stats = [
   { number: "100", suffix: "+", label: "Lives Changed" },
   { number: "50", suffix: "+", label: "Weekly Outreach" },
   { number: "24", suffix: "/7", label: "Prayer Support" },
-  { number: "∞", suffix: "", label: "God's Love" }
+  { number: "∞", suffix: "", label: "God’s Love" }
 ];
 
 export default function AboutPage() {
@@ -136,12 +136,12 @@ export default function AboutPage() {
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed">
-                Once homeless on the streets, now a vessel of God's love and transformation. Apostle Elijah's journey from desperation to divine calling demonstrates that God can change anyone.
+                Once homeless on the streets, now a vessel of God’s love and transformation. Apostle Elijah’s journey from desperation to divine calling demonstrates that God can change anyone.
               </p>
 
               <div className="bg-yellow-100 border-l-4 border-yellow-500 p-6 rounded-r-lg">
                 <p className="text-gray-800 italic">
-                  "Without being kind to one another we can't please God. If we are to serve the Lord, we have to start with our own deeds, how we treat each other - that speaks volumes to God."
+                  “Without being kind to one another we can’t please God. If we are to serve the Lord, we have to start with our own deeds, how we treat each other — that speaks volumes to God.”
                 </p>
                 <p className="text-yellow-700 font-semibold mt-2">- Apostle Elijah</p>
               </div>
@@ -181,7 +181,7 @@ export default function AboutPage() {
                 {/* Scripture overlay */}
                 <div className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg p-4">
                   <p className="text-white text-sm font-medium">Matthew 7:24</p>
-                  <p className="text-white/90 text-xs">"Built on the Rock of Jesus Christ"</p>
+                  <p className="text-white/90 text-xs">“Built on the Rock of Jesus Christ”</p>
                 </div>
               </div>
               

@@ -102,7 +102,7 @@ const roomTypes = [
   },
   {
     id: 3,
-    name: "Children's Ministry Room",
+    name: "Children’s Ministry Room",
     price: 75,
     originalPrice: 100,
   image: "/helping6.jpeg",
@@ -110,7 +110,7 @@ const roomTypes = [
     size: "80 m²",
     guests: 50,
     beds: 0,
-    description: "Dedicated space for children's programs, Sunday school, and youth activities with age-appropriate facilities.",
+  description: "Dedicated space for children’s programs, Sunday school, and youth activities with age‑appropriate facilities.",
     features: [
       "Child-Safe Environment",
       "Educational Materials",

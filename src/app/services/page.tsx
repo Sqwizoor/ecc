@@ -42,7 +42,7 @@ const ministries = [
   {
     icon: Hand,
     title: "Healing & Prayer Ministry",
-    description: "Focused on changing lives through healing prayer, deliverance, and demonstrating God's restorative power.",
+    description: "Focused on changing lives through healing prayer, deliverance, and demonstrating God’s restorative power.",
     features: ["Healing prayer sessions", "Deliverance ministry", "Hospital visits", "Home prayer visits"],
     image: "/pastor-action.jpeg"
   },
@@ -56,14 +56,14 @@ const ministries = [
   {
     icon: Users,
     title: "Community Outreach",
-    description: "Serving our community with practical help, showing God's love through action and kindness.",
+    description: "Serving our community with practical help, showing God’s love through action and kindness.",
     features: ["Community service", "Elderly care visits", "Youth programs", "Family support"],
     image: "/general3.jpeg"
   },
   {
     icon: BookOpen,
     title: "Bible Study & Teaching",
-    description: "Grounded in Matthew 7:24 - building lives on the solid foundation of God's Word and Jesus Christ.",
+    description: "Grounded in Matthew 7:24 – building lives on the solid foundation of God’s Word and Jesus Christ.",
     features: ["Weekly Bible study", "Sunday school", "Youth Bible classes", "Adult discipleship"],
     image: "/board.jpeg"
   },
@@ -80,12 +80,12 @@ const coreValues = [
   { 
     icon: Heart, 
     title: "Kindness & Compassion", 
-    text: "\"Without being kind to one another we can't please God\" - Our foundational belief." 
+    text: "“Without being kind to one another we can’t please God” – Our foundational belief." 
   },
   { 
     icon: Cross, 
     title: "Biblical Foundation", 
-    text: "Built on Matthew 7:24 - the solid rock of Jesus Christ who died for our sins." 
+    text: "Built on Matthew 7:24 – the solid rock of Jesus Christ who died for our sins." 
   },
   { 
     icon: Target, 
@@ -112,13 +112,13 @@ const serviceSchedule = [
     day: "Wednesday",
     time: "7:00 PM", 
     service: "Bible Study",
-    description: "Deep dive into God's Word and practical application"
+    description: "Deep dive into God’s Word and practical application"
   },
   {
     day: "Friday",
     time: "6:00 PM",
     service: "Youth Ministry",
-    description: "Leadership development for tomorrow's leaders"
+    description: "Leadership development for tomorrow’s leaders"
   },
   {
     day: "Saturday",
@@ -155,7 +155,7 @@ export default function ServicesPage() {
             
             <div className="bg-emerald-100 border-l-4 border-emerald-500 p-6 rounded-r-lg">
               <p className="text-gray-800 italic">
-                "DON'T WAIT FOR SOMEBODY ELSE TO DO IT, PLAY YOUR PART IN SOMEONE'S LIFE."
+                “DON’T WAIT FOR SOMEBODY ELSE TO DO IT, PLAY YOUR PART IN SOMEONE’S LIFE.”
               </p>
               <p className="text-emerald-700 font-semibold mt-2">- Apostle Elijah</p>
             </div>
@@ -340,6 +340,7 @@ export default function ServicesPage() {
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your Ministry Journey</h2>
             <p className="text-gray-600 text-lg">From newcomer to leader - God has a plan for your life.</p>
+          
           </div>
           
           <div className="grid md:grid-cols-4 gap-10">

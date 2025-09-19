@@ -12,7 +12,7 @@ import { Filter, X } from "lucide-react";
 const mediaData: Array<{ id: string; type: "image"; src: string; alt: string; tags: string[] }> = [
   { id: "g1", type: "image", src: "/poolpit.jpeg", alt: "Sunday worship at the pulpit", tags: ["worship", "sanctuary"] },
   { id: "g2", type: "image", src: "/croud2.jpeg", alt: "Congregation in praise", tags: ["worship", "community"] },
-  { id: "g3", type: "image", src: "/helping6.jpeg", alt: "Children's ministry and serving together", tags: ["children", "ministry"] },
+  { id: "g3", type: "image", src: "/helping6.jpeg", alt: "Children’s ministry and serving together", tags: ["children", "ministry"] },
   { id: "g4", type: "image", src: "/board2.jpeg", alt: "Leadership and discipleship meeting", tags: ["leadership", "fellowship"] },
   { id: "g5", type: "image", src: "/helping9.jpeg", alt: "Street outreach ministry in action", tags: ["outreach", "ministry"] },
   { id: "g6", type: "image", src: "/general3.jpeg", alt: "Fellowship after service", tags: ["fellowship", "events"] },

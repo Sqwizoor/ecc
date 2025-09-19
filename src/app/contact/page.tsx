@@ -34,7 +34,7 @@ const contactMethods = [
   {
     icon: Mail,
     title: "Email Us",
-    description: "Send us a message and we'll respond within 24 hours",
+  description: "Send us a message and we’ll respond within 24 hours",
     contact: "info@elijahchurchofchrist.org",
     availability: "Response within 24 hours"
   },
@@ -57,7 +57,7 @@ const contactMethods = [
 const ministries = [
   {
     name: "Prayer Ministry",
-    description: "Need prayer? We're here to pray with you and for you.",
+  description: "Need prayer? We’re here to pray with you and for you.",
     icon: Heart,
     contact: "prayer@elijahchurchofchrist.org"
   },
@@ -92,7 +92,7 @@ const serviceSchedule = [
     day: "Wednesday",
     time: "7:00 PM",
     service: "Bible Study & Prayer",
-    description: "Deep dive into God's Word and intercessory prayer"
+  description: "Deep dive into God’s Word and intercessory prayer"
   },
   {
     day: "Friday",
@@ -123,7 +123,7 @@ const faqs = [
   },
   {
     question: "What should I expect at a Sunday service?",
-    answer: "Our services include powerful worship, biblical preaching, prayer ministry, and fellowship. We focus on life transformation through God's Word and the Holy Spirit."
+  answer: "Our services include powerful worship, biblical preaching, prayer ministry, and fellowship. We focus on life transformation through God’s Word and the Holy Spirit."
   }
 ];
 
@@ -177,13 +177,13 @@ export default function ContactPage() {
             </h1>
 
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We're here to pray with you, support you, and help you grow in your relationship with Jesus Christ.
+              We’re here to pray with you, support you, and help you grow in your relationship with Jesus Christ.
               Reach out to us through any of our contact methods below.
             </p>
 
             <div className="bg-emerald-100 border-l-4 border-emerald-500 p-6 rounded-r-lg max-w-2xl mx-auto">
               <p className="text-gray-800 italic text-center">
-                "Come to me, all you who are weary and burdened, and I will give you rest."
+                “Come to me, all you who are weary and burdened, and I will give you rest.”
               </p>
               <p className="text-emerald-700 font-semibold text-center mt-2">- Matthew 11:28</p>
             </div>
@@ -204,7 +204,7 @@ export default function ContactPage() {
               Ways to Connect
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the best way to reach us. We're always ready to listen and help.
+              Choose the best way to reach us. We’re always ready to listen and help.
             </p>
           </motion.div>
 
@@ -372,8 +372,8 @@ export default function ContactPage() {
                       </motion.div>
                       <h3 className="text-2xl font-bold text-gray-900">Message Sent!</h3>
                       <p className="text-gray-600">
-                        Thank you for reaching out. We'll respond to your message within 24 hours.
-                        If this is a prayer request, know that we're praying for you right now.
+                        Thank you for reaching out. We’ll respond to your message within 24 hours.
+                        If this is a prayer request, know that we’re praying for you right now.
                       </p>
                       <Button
                         onClick={() => setSubmitted(false)}
@@ -521,7 +521,7 @@ export default function ContactPage() {
             </h2>
 
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Come experience the transforming power of God's love. Join us this Sunday for worship,
+              Come experience the transforming power of God’s love. Join us this Sunday for worship,
               fellowship, and life-changing ministry.
             </p>
 

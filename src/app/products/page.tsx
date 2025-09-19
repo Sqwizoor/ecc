@@ -60,7 +60,7 @@ const products = [
     newProduct: false,
     icon: BookOpen,
     image: "/room14.jpeg",
-  description: "Comprehensive study Bible with extensive notes, articles, and application insights for deeper understanding of God's Word.",
+  description: "Comprehensive study Bible with extensive notes, articles, and application insights for deeper understanding of God’s Word.",
     benefits: [
       "Complete study notes",
       "Character profiles",
@@ -98,8 +98,8 @@ const products = [
   {
     id: "christian-book",
     category: "books",
-    name: "The Purpose Driven Life",
-    subtitle: "What on Earth Am I Here For?",
+  name: "The Purpose Driven Life",
+  subtitle: "What on Earth Am I Here For?",
     price: 35,
     originalPrice: null,
     rating: 4.8,
@@ -108,7 +108,7 @@ const products = [
     newProduct: false,
     icon: Book,
     image: "/room3.jpeg",
-  description: "A bestselling Christian book that helps readers discover God's purpose for their lives through biblical principles.",
+  description: "A bestselling Christian book that helps readers discover God’s purpose for their lives through biblical principles.",
     benefits: [
       "Discover your purpose",
       "Biblical wisdom",
@@ -122,7 +122,7 @@ const products = [
   {
     id: "worship-cd",
     category: "music",
-    name: "Worship & Praise Collection",
+  name: "Worship & Praise Collection",
     subtitle: "Modern worship songs and hymns",
     price: 45,
     originalPrice: null,
@@ -146,7 +146,7 @@ const products = [
   {
     id: "church-tshirt",
     category: "merchandise",
-    name: "Elijah Church of Christ T-Shirt",
+  name: "Elijah Church of Christ T‑Shirt",
     subtitle: "Matthew 7:24 - Built on the Rock",
     price: 25,
     originalPrice: null,
@@ -156,7 +156,7 @@ const products = [
     newProduct: false,
     icon: Shirt,
     image: "/room5.jpeg",
-  description: "Comfortable cotton t-shirt featuring the Elijah Church of Christ logo and our foundational scripture from Matthew 7:24.",
+  description: "Comfortable cotton T‑shirt featuring the Elijah Church of Christ logo and our foundational scripture from Matthew 7:24.",
     benefits: [
       "Comfortable cotton",
       "Church logo design",
@@ -180,7 +180,7 @@ const products = [
     newProduct: true,
     icon: Users,
     image: "/room6.jpeg",
-  description: "Comprehensive guide for church leaders with practical tools, biblical principles, and real-world applications for effective ministry.",
+  description: "Comprehensive guide for church leaders with practical tools, biblical principles, and real‑world applications for effective ministry.",
     benefits: [
       "Leadership principles",
       "Ministry tools",

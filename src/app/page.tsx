@@ -208,7 +208,7 @@ const homeServices = [
     price: "Free for All",
     popular: true,
     image: "/pastor-action.jpeg",
-    description: "Experience God's healing power through prayer, laying of hands, and divine intervention. Witness testimonies of transformed lives."
+    description: "Experience God’s healing power through prayer, laying of hands, and divine intervention. Witness testimonies of transformed lives."
   },
   {
     id: "ministry-leadership",
@@ -228,7 +228,7 @@ const homeServices = [
     price: "Heart for the Lost",
     popular: true,
     image: "/helping9.jpeg",
-    description: "Returning to the streets where Apostle Elijah once lived. Sharing hope, providing meals, and demonstrating Christ's love to the vulnerable."
+    description: "Returning to the streets where Apostle Elijah once lived. Sharing hope, providing meals, and demonstrating Christ’s love to the vulnerable."
   },
   {
     id: "ministry-worship",
@@ -238,7 +238,7 @@ const homeServices = [
     price: "Come as You Are",
     popular: false,
     image: "/croud3.jpeg",
-    description: "Authentic worship, powerful preaching, and genuine fellowship. Experience God's presence in a welcoming community atmosphere."
+    description: "Authentic worship, powerful preaching, and genuine fellowship. Experience God’s presence in a welcoming community atmosphere."
   }
 ];
 
@@ -433,7 +433,7 @@ export default function HomePage() {
           </Link>
           <div className="w-px h-10 bg-gradient-to-b from-transparent via-emerald-300/50 to-transparent" />
           <a
-            href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I'd%20like%20to%20join%20your%20service."
+            href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20join%20your%20service."
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center text-[10px] font-medium text-gray-700"
@@ -489,7 +489,7 @@ export default function HomePage() {
               transition={{ delay:0.7, duration:0.7 }}
               className="mt-8 text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             >
-              "Without being kind to one another we can't please God" - Apostle Elijah. Join us as we serve the Lord through love, compassion, and transforming lives from the streets to the sanctuary.
+              “Without being kind to one another we can’t please God” - Apostle Elijah. Join us as we serve the Lord through love, compassion, and transforming lives from the streets to the sanctuary.
             </motion.p>
             <motion.div
               initial={{ opacity:0, y:20 }}
@@ -787,14 +787,14 @@ export default function HomePage() {
               {
                 icon: Heart,
                 title: "Healing Ministry",
-                description: "Experience God's healing power through prayer and faith",
+                description: "Experience God’s healing power through prayer and faith",
                 stat: "Healing",
                 statLabel: "Hearts"
               },
               {
                 icon: Users,
                 title: "Street Outreach",
-                description: "Reaching the lost and demonstrating Christ's love to all",
+                description: "Reaching the lost and demonstrating Christ’s love to all",
                 stat: "Weekly",
                 statLabel: "Outreach"
               },
@@ -958,7 +958,7 @@ export default function HomePage() {
               Your Journey With Us
             </motion.h2>
             <motion.p variants={itemFadeUp} className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join our family of believers and experience transformation through Christ's love and community fellowship.
+              Join our family of believers and experience transformation through Christ’s love and community fellowship.
             </motion.p>
           </motion.div>
 
@@ -1462,7 +1462,7 @@ export default function HomePage() {
             </motion.div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-      <Link href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I'd%20like%20to%20plan%20a%20visit%20and%20request%20prayer." target="_blank">
+  <Link href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20plan%20a%20visit%20and%20request%20prayer." target="_blank">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
       <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-50 text-lg px-12 py-6 rounded-full group shadow-2xl">
         <Calendar className="mr-2 h-5 w-5" />
