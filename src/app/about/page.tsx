@@ -70,7 +70,7 @@ const team = [
   {
     name: "Pastor Grace Mthembu",
     role: "Associate Pastor",
-    description: "Leads worship and women's ministry. Passionate about healing prayer and community outreach.",
+  description: "Leads worship and women’s ministry. Passionate about healing prayer and community outreach.",
     image: "/room6.jpeg"
   },
   {
@@ -252,7 +252,7 @@ export default function AboutPage() {
                   </p>
                   <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
                     <p className="text-gray-800 text-center italic">
-                      "DON'T WAIT FOR SOMEBODY ELSE TO DO IT, PLAY YOUR PART IN SOMEONE'S LIFE."
+                      “DON’T WAIT FOR SOMEBODY ELSE TO DO IT, PLAY YOUR PART IN SOMEONE’S LIFE.”
                     </p>
                     <p className="text-sm text-yellow-700 text-center mt-2">Matthew 25:35-40</p>
                   </div>
@@ -319,10 +319,10 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Apostle Elijah's Journey
+              Apostle Elijah’s Journey
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From the streets to the sanctuary - a testimony of God's transforming power.
+              From the streets to the sanctuary — a testimony of God’s transforming power.
             </p>
           </motion.div>
 
@@ -379,7 +379,7 @@ export default function AboutPage() {
               Ministry Leadership
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Called and committed servants dedicated to changing lives and building God's kingdom.
+              Called and committed servants dedicated to changing lives and building God’s kingdom.
             </p>
           </motion.div>
 
@@ -440,12 +440,12 @@ export default function AboutPage() {
             
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
               <p className="text-lg md:text-xl leading-relaxed italic mb-6">
-                "For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, 
+                “For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, 
                 I was a stranger and you invited me in, I needed clothes and you clothed me, I was sick and you looked after me, 
-                I was in prison and you came to visit me."
+                I was in prison and you came to visit me.”
               </p>
               <p className="text-lg font-semibold">
-                "Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me."
+                “Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.”
               </p>
             </div>
 
@@ -471,7 +471,7 @@ export default function AboutPage() {
             </h2>
             
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Come experience the transforming power of God's love. Be part of a community that changes lives.
+              Come experience the transforming power of God’s love. Be part of a community that changes lives.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">

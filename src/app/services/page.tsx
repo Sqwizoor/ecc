@@ -25,7 +25,7 @@ import {
   HeartHandshake,
   GraduationCap,
   Home,
-  Gift
+  
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -388,7 +388,7 @@ export default function ServicesPage() {
             
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
               <p className="text-lg md:text-xl leading-relaxed italic mb-4">
-                "Therefore everyone who hears these words of mine and puts them into practice is like a wise man who built his house on the rock."
+                “Therefore everyone who hears these words of mine and puts them into practice is like a wise man who built his house on the rock.”
               </p>
               <p className="text-lg font-semibold">
                 Our church is built on the solid foundation of Jesus Christ.
