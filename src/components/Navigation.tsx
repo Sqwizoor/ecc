@@ -110,7 +110,7 @@ export default function Navigation() {
 															className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
 							>
 								<a
-									href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I'd%20like%20to%20join%20your%20service."
+									href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20join%20your%20service."
 									target="_blank"
 									rel="noopener noreferrer"
 									className="flex items-center"
@@ -207,7 +207,7 @@ export default function Navigation() {
 									onClick={() => setIsOpen(false)}
 								>
 									<a
-										href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I'd%20like%20to%20join%20your%20service."
+										href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20join%20your%20service."
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex items-center"
