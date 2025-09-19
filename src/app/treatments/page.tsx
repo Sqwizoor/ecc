@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Leaf, Sparkles, Phone, Mail } from "lucide-react";
+import { CheckCircle2, Sparkles, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const treatments = [
@@ -19,13 +19,13 @@ const treatments = [
     ],
   },
   {
-    title: "Children's Ministry",
+    title: "Children’s Ministry",
     summary:
-      "Nurturing environment where children learn about God's love through age-appropriate Bible stories, songs, crafts, and interactive activities.",
+      "Nurturing environment where children learn about God’s love through age-appropriate Bible stories, songs, crafts, and interactive activities.",
     bullets: [
       "Sunday school classes for all ages",
       "Vacation Bible School programs",
-      "Children's church services",
+      "Children’s church services",
       "Music and arts programs",
       "Character development activities",
       "Parent-child fellowship events"
@@ -179,7 +179,7 @@ export default function TreatmentsPage() {
               a: "Most programs are open to anyone seeking spiritual growth. Some leadership programs may have specific prerequisites, but we welcome everyone to participate.",
             },{
               q: "Can I try a program before committing?",
-              a: "Yes! We offer introductory sessions for most programs so you can experience our community and see if it's a good fit for you.",
+              a: "Yes! We offer introductory sessions for most programs so you can experience our community and see if it’s a good fit for you.",
             }].map((f, i) => (
               <motion.div
                 key={f.q}
