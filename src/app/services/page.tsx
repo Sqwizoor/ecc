@@ -410,7 +410,7 @@ export default function ServicesPage() {
             Ready To Join Our Ministry?
           </motion.h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Come experience the transforming power of God's love. Be part of a community that changes lives.
+            Come experience the transforming power of God’s love. Be part of a community that changes lives.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
