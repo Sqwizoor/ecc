@@ -423,6 +423,7 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* (Removed mobile Floating Quick Action Bar) */}
+      {/* (Removed mobile Floating Quick Action Bar) */}
       {/* Hero Section — clean minimalist with crossfade slideshow */}
       <section ref={heroRef} className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
   {/* Background slideshow */}
@@ -667,7 +668,7 @@ export default function HomePage() {
                       >
                         {service.description}
                       </motion.p>
-
+                      {/* CTA removed as requested */}
                       {/* CTA removed as requested */}
                     </div>
                   </CardContent>
