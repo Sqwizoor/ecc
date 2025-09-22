@@ -1,18 +1,10 @@
 "use client";
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValue,
-  useSpring,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { SmartImage } from "@/components/SmartImage";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Sparkles,
   Calendar,
@@ -20,7 +12,6 @@ import {
   ArrowRight,
   Shield,
   Heart,
-  Award,
   Crown,
   Cross,
   Users,
@@ -38,13 +29,13 @@ import {
   useRef,
   useState,
   useCallback,
-  useMemo,
-  type MouseEvent as ReactMouseEvent,
 } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import * as React from "react";
+
+type IconComponent = React.ComponentType<{ className?: string }>;
 
 // Lightbox Context to manage modal open state
 interface LightboxContextValue {
@@ -454,13 +445,6 @@ function Slideshow({
 
 export default function HomePage() {
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   // Motion variants for cleaner, modern staggered animations
   const containerStagger: Variants = {
@@ -485,26 +469,7 @@ export default function HomePage() {
     },
   };
 
-  // Subtle interactive tilt for hero media
-  const tiltX = useMotionValue(0);
-  const tiltY = useMotionValue(0);
-  const tiltXspring = useSpring(tiltX, { stiffness: 120, damping: 12 });
-  const tiltspringY = useSpring(tiltY, { stiffness: 120, damping: 12 });
-
-  const onHeroMouseMove = (e: ReactMouseEvent<HTMLDivElement>) => {
-    const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const rx = ((y - rect.height / 2) / rect.height) * -10; // -10deg to 10deg
-    const ry = ((x - rect.width / 2) / rect.width) * 10;
-    tiltX.set(rx);
-    tiltY.set(ry);
-  };
-
-  const onHeroMouseLeave = () => {
-    tiltX.set(0);
-    tiltY.set(0);
-  };
+  // (removed unused hero tilt handlers)
 
   return (
     <div className="overflow-hidden">
@@ -1010,7 +975,7 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-60px" }}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {[
+            {([
               {
                 icon: Cross,
                 title: "Evangelism",
@@ -1041,7 +1006,8 @@ export default function HomePage() {
                 title: "Prayer",
                 text: "Intercession, counseling, and healing ministry.",
               },
-            ].map((m, i) => (
+            ] as { icon: IconComponent; title: string; text: string }[]).map(
+              (m) => (
               <motion.div
                 key={m.title}
                 variants={itemFadeUp}
@@ -1100,7 +1066,7 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-60px" }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
-            {[
+            {([
               {
                 step: "01",
                 title: "Visit Us",
@@ -1132,7 +1098,13 @@ export default function HomePage() {
                 icon: HandHeart,
                 duration: "Ministry",
               },
-            ].map((step, index) => (
+            ] as {
+              step: string;
+              title: string;
+              description: string;
+              icon: IconComponent;
+              duration: string;
+            }[]).map((step, index) => (
               <motion.div
                 key={step.step}
                 variants={itemFadeUp}
@@ -1197,9 +1169,7 @@ export default function HomePage() {
                         delay: index * 0.3,
                       }}
                     >
-                      {React.createElement(step.icon as any, {
-                        className: "w-7 h-7",
-                      })}
+                      <step.icon className="w-7 h-7" />
                     </motion.div>
 
                     {/* Step number badge */}
@@ -1305,7 +1275,7 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-60px" }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {[
+            {([
               {
                 img: "/croud2.jpeg",
                 title: "Sunday Celebration Service",
@@ -1324,7 +1294,8 @@ export default function HomePage() {
                 detail: "Raising Future Leaders",
                 time: "Monthly • Saturdays",
               },
-            ].map((e, i) => (
+            ] as { img: string; title: string; detail: string; time: string }[]).map(
+              (e) => (
               <motion.div key={e.title} variants={itemFadeUp} className="group">
                 <Card
                   variant="glass"
@@ -1397,7 +1368,7 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-60px" }}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {[
+            {([
               {
                 icon: HandHeart,
                 title: "Serve on a Team",
@@ -1413,7 +1384,8 @@ export default function HomePage() {
                 title: "Partner with Us",
                 text: "Pray, give, and spread the word to fuel the vision.",
               },
-            ].map((c) => (
+            ] as { icon: IconComponent; title: string; text: string }[]).map(
+              (c) => (
               <motion.div key={c.title} variants={itemFadeUp}>
                 <Card
                   variant="solid"
@@ -1423,9 +1395,7 @@ export default function HomePage() {
                   className="p-6 rounded-2xl h-full"
                 >
                   <div className="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
-                    {React.createElement(c.icon as any, {
-                      className: "w-6 h-6",
-                    })}
+                    <c.icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {c.title}
