@@ -1,13 +1,20 @@
 "use client";
 
-import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { SmartImage } from "@/components/SmartImage";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Sparkles, 
+import {
+  Sparkles,
   Calendar,
   Clock,
   ArrowRight,
@@ -19,9 +26,21 @@ import {
   Users,
   HandHeart,
   BookOpen,
-  Church
+  Church,
+  MapPin,
+  Handshake,
+  Activity,
+  ChevronDown,
 } from "lucide-react";
-import { useEffect, useRef, useState, useCallback, useMemo, type MouseEvent as ReactMouseEvent } from "react";
+import * as Accordion from "@radix-ui/react-accordion";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
@@ -51,21 +70,21 @@ const LightboxProvider = ({ children }: { children: React.ReactNode }) => {
   const close = useCallback(() => setIsOpen(false), []);
 
   const next = useCallback(() => {
-    setIndex(prev => (prev + 1) % resultsMedia.length);
+    setIndex((prev) => (prev + 1) % resultsMedia.length);
   }, []);
   const prev = useCallback(() => {
-    setIndex(prev => (prev - 1 + resultsMedia.length) % resultsMedia.length);
+    setIndex((prev) => (prev - 1 + resultsMedia.length) % resultsMedia.length);
   }, []);
 
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close();
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') prev();
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, close, next, prev]);
 
   return (
@@ -84,10 +103,10 @@ const LightboxProvider = ({ children }: { children: React.ReactNode }) => {
               initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 180, damping: 20 }}
+              transition={{ type: "spring", stiffness: 180, damping: 20 }}
             >
               <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl ring-1 ring-white/10 shadow-2xl bg-black">
-                {resultsMedia[index].type === 'image' && (
+                {resultsMedia[index].type === "image" && (
                   <Image
                     src={resultsMedia[index].src}
                     alt={resultsMedia[index].alt}
@@ -100,20 +119,39 @@ const LightboxProvider = ({ children }: { children: React.ReactNode }) => {
                 )}
               </div>
               {/* Controls */}
-              <button onClick={close} className="absolute top-3 right-3 text-white/80 hover:text-white text-sm bg-black/40 px-3 py-1 rounded-full">Close</button>
-              <button onClick={prev} className="absolute top-1/2 -left-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center">‹</button>
-              <button onClick={next} className="absolute top-1/2 -right-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center">›</button>
+              <button
+                onClick={close}
+                className="absolute top-3 right-3 text-white/80 hover:text-white text-sm bg-black/40 px-3 py-1 rounded-full"
+              >
+                Close
+              </button>
+              <button
+                onClick={prev}
+                className="absolute top-1/2 -left-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center"
+              >
+                ‹
+              </button>
+              <button
+                onClick={next}
+                className="absolute top-1/2 -right-4 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center"
+              >
+                ›
+              </button>
               <div className="mt-4 flex justify-center gap-2">
                 {resultsMedia.map((m, i) => (
                   <button
                     key={m.src + i}
                     onClick={() => setIndex(i)}
-                    className={`h-2 w-2 rounded-full ${i===index?'bg-white':'bg-white/40 hover:bg-white/70'}`}
-                    aria-label={`Go to slide ${i+1}`}
+                    className={`h-2 w-2 rounded-full ${
+                      i === index ? "bg-white" : "bg-white/40 hover:bg-white/70"
+                    }`}
+                    aria-label={`Go to slide ${i + 1}`}
                   />
                 ))}
               </div>
-              <p className="mt-3 text-center text-xs text-white/60 tracking-wide">{resultsMedia[index].alt}</p>
+              <p className="mt-3 text-center text-xs text-white/60 tracking-wide">
+                {resultsMedia[index].alt}
+              </p>
             </motion.div>
           </motion.div>
         )}
@@ -124,11 +162,18 @@ const LightboxProvider = ({ children }: { children: React.ReactNode }) => {
 
 // Carousel component for gallery
 function GalleryCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start', dragFree: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    dragFree: false,
+  });
   const { open } = useLightbox();
   const [selected, setSelected] = useState(0);
 
-  const scrollTo = useCallback((i: number) => emblaApi && emblaApi.scrollTo(i), [emblaApi]);
+  const scrollTo = useCallback(
+    (i: number) => emblaApi && emblaApi.scrollTo(i),
+    [emblaApi]
+  );
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -137,7 +182,7 @@ function GalleryCarousel() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    emblaApi.on('select', onSelect);
+    emblaApi.on("select", onSelect);
     onSelect();
   }, [emblaApi, onSelect]);
 
@@ -152,7 +197,7 @@ function GalleryCarousel() {
               whileHover={{ y: -6 }}
               onClick={() => open(idx)}
             >
-              {item.type === 'image' ? (
+              {item.type === "image" ? (
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -163,35 +208,46 @@ function GalleryCarousel() {
                   priority={idx < 2}
                 />
               ) : (
-                <LazyVideo src={item.src} className="w-full h-full object-cover" />
+                <LazyVideo
+                  src={item.src}
+                  className="w-full h-full object-cover"
+                />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
-              <div className="absolute bottom-3 left-3 right-3 text-white/90 text-sm font-medium drop-shadow">
-                {item.alt}
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-30 group-hover:opacity-10 transition-opacity" />
             </motion.div>
           ))}
         </div>
       </div>
       {/* Prev/Next Buttons */}
-      <div className="absolute -top-16 right-0 flex items-center gap-2">
+      <div className="absolute -top-16 right-0 hidden sm:flex items-center gap-2">
         <button
           onClick={() => emblaApi && emblaApi.scrollPrev()}
-          className="px-3 py-2 rounded-md bg-gray-900/70 text-white text-xs hover:bg-gray-900/90"
-        >Prev</button>
+          className="px-3 py-2 rounded-md bg-gray-900/70 text-white text-xs hover:bg-gray-900/90 shadow-sm"
+          aria-label="Previous slide"
+        >
+          Prev
+        </button>
         <button
           onClick={() => emblaApi && emblaApi.scrollNext()}
-          className="px-3 py-2 rounded-md bg-gray-900/70 text-white text-xs hover:bg-gray-900/90"
-        >Next</button>
+          className="px-3 py-2 rounded-md bg-gray-900/70 text-white text-xs hover:bg-gray-900/90 shadow-sm"
+          aria-label="Next slide"
+        >
+          Next
+        </button>
       </div>
       {/* Dots */}
-      <div className="flex justify-center gap-2 mt-8">
+      <div className="flex justify-center gap-3 mt-8">
         {resultsMedia.map((_, i) => (
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            className={`h-2.5 w-2.5 rounded-full ${i===selected?'bg-emerald-600':'bg-gray-300 hover:bg-gray-400'} transition-colors`}
-            aria-label={`Go to slide ${i+1}`}
+            className={`h-3 w-3 rounded-full ring-1 ring-black/5 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400 ${
+              i === selected
+                ? "bg-emerald-600 scale-110"
+                : "bg-gray-300 hover:bg-gray-400"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+            aria-current={i === selected}
           />
         ))}
       </div>
@@ -208,7 +264,8 @@ const homeServices = [
     price: "Free for All",
     popular: true,
     image: "/pastor-action.jpeg",
-    description: "Experience God’s healing power through prayer, laying of hands, and divine intervention. Witness testimonies of transformed lives."
+    description:
+      "Experience God’s healing power through prayer, laying of hands, and divine intervention. Witness testimonies of transformed lives.",
   },
   {
     id: "ministry-leadership",
@@ -218,7 +275,8 @@ const homeServices = [
     price: "Investment in Tomorrow",
     popular: true,
     image: "/board2.jpeg",
-    description: "Developing godly leaders for tomorrow. Character building, spiritual growth, and practical leadership skills rooted in Christ."
+    description:
+      "Developing godly leaders for tomorrow. Character building, spiritual growth, and practical leadership skills rooted in Christ.",
   },
   {
     id: "ministry-outreach",
@@ -227,8 +285,9 @@ const homeServices = [
     duration: "Weekly Missions",
     price: "Heart for the Lost",
     popular: true,
-    image: "/helping9.jpeg",
-    description: "Returning to the streets where Apostle Elijah once lived. Sharing hope, providing meals, and demonstrating Christ’s love to the vulnerable."
+    image: "/helping5.jpeg",
+    description:
+      "Returning to the streets where Apostle Elijah once lived. Sharing hope, providing meals, and demonstrating Christ’s love to the vulnerable.",
   },
   {
     id: "ministry-worship",
@@ -238,8 +297,9 @@ const homeServices = [
     price: "Come as You Are",
     popular: false,
     image: "/croud3.jpeg",
-    description: "Authentic worship, powerful preaching, and genuine fellowship. Experience God’s presence in a welcoming community atmosphere."
-  }
+    description:
+      "Authentic worship, powerful preaching, and genuine fellowship. Experience God’s presence in a welcoming community atmosphere.",
+  },
 ];
 
 // (removed unused testimonials array)
@@ -254,9 +314,21 @@ const resultsMedia: MediaItem[] = [
   { type: "image", src: "/poolpit.jpeg", alt: "Worship at the pulpit" },
   { type: "image", src: "/croud2.jpeg", alt: "Congregation in praise" },
   { type: "image", src: "/croud3.jpeg", alt: "Spirit-filled worship service" },
-  { type: "image", src: "/board2.jpeg", alt: "Leadership and discipleship class" },
-  { type: "image", src: "/helping6.jpeg", alt: "Community outreach and serving" },
-  { type: "image", src: "/helping8.jpeg", alt: "Feeding program blessing the community" },
+  {
+    type: "image",
+    src: "/board2.jpeg",
+    alt: "Leadership and discipleship class",
+  },
+  {
+    type: "image",
+    src: "/helping6.jpeg",
+    alt: "Community outreach and serving",
+  },
+  {
+    type: "image",
+    src: "/helping8.jpeg",
+    alt: "Feeding program blessing the community",
+  },
   { type: "image", src: "/pastor3.jpeg", alt: "Prayer and counseling" },
   { type: "image", src: "/general3.jpeg", alt: "Fellowship and connection" },
   { type: "image", src: "/board.jpeg", alt: "Bible study and teaching" },
@@ -265,18 +337,18 @@ const resultsMedia: MediaItem[] = [
 ];
 
 // Lightweight lazy video that only loads when near viewport
-function LazyVideo({ 
-  src, 
-  poster, 
-  className, 
-  muted, 
-  loop, 
-  playsInline, 
+function LazyVideo({
+  src,
+  poster,
+  className,
+  muted,
+  loop,
+  playsInline,
   autoPlay,
-  ...props 
-}: { 
-  src: string; 
-  poster?: string; 
+  ...props
+}: {
+  src: string;
+  poster?: string;
   className?: string;
   muted?: boolean;
   loop?: boolean;
@@ -333,13 +405,19 @@ function LazyVideo({
       muted={muted}
       loop={loop}
       autoPlay={autoPlay}
-  {...props}
+      {...props}
     />
   );
 }
 
 // Simple crossfade slideshow background component
-function Slideshow({ images, interval = 6000 }: { images: string[]; interval?: number }) {
+function Slideshow({
+  images,
+  interval = 6000,
+}: {
+  images: string[];
+  interval?: number;
+}) {
   const [index, setIndex] = React.useState(0);
   React.useEffect(() => {
     const id = setInterval(() => {
@@ -355,8 +433,8 @@ function Slideshow({ images, interval = 6000 }: { images: string[]; interval?: n
           className="absolute inset-0 bg-black"
           initial={{ opacity: 0 }}
           animate={{ opacity: i === index ? 1 : 0 }}
-          transition={{ duration: 1.4, ease: 'easeInOut' }}
-          style={{ pointerEvents: 'none' }}
+          transition={{ duration: 1.4, ease: "easeInOut" }}
+          style={{ pointerEvents: "none" }}
         >
           <Image
             src={src}
@@ -378,7 +456,7 @@ export default function HomePage() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -390,13 +468,21 @@ export default function HomePage() {
     show: {
       opacity: 1,
       y: 0,
-      transition: { staggerChildren: 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-    }
+      transition: {
+        staggerChildren: 0.08,
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
   };
 
   const itemFadeUp: Variants = {
     hidden: { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.2, 0.65, 0.3, 0.9] } }
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.2, 0.65, 0.3, 0.9] },
+    },
   };
 
   // Subtle interactive tilt for hero media
@@ -425,77 +511,102 @@ export default function HomePage() {
       {/* (Removed mobile Floating Quick Action Bar) */}
       {/* (Removed mobile Floating Quick Action Bar) */}
       {/* Hero Section — clean minimalist with crossfade slideshow */}
-      <section ref={heroRef} className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
-  {/* Background slideshow */}
-  <Slideshow images={["/poolpit.jpeg","/croud2.jpeg","/board.jpeg","/helping4.jpeg"]} />
+      <section
+        ref={heroRef}
+        className="relative min-h-[92vh] flex items-center justify-center overflow-hidden"
+      >
+        {/* Background slideshow */}
+        <Slideshow
+          images={[
+            "/poolpit.jpeg",
+            "/croud2.jpeg",
+            "/board.jpeg",
+            "/helping4.jpeg",
+          ]}
+        />
         {/* Overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.65))]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)] mix-blend-overlay" />
         {/* Content */}
         <motion.div
-          initial={{ opacity:0, y:30 }}
-          animate={{ opacity:1, y:0 }}
-          transition={{ duration:0.9, ease:[0.16,1,0.3,1] }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-10 w-full px-4"
         >
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               className="inline-flex items-center space-x-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 mb-8"
-              initial={{ opacity:0, y:10 }}
-              animate={{ opacity:1, y:0 }}
-              transition={{ delay:0.3 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
             >
               <Cross className="w-4 h-4 text-emerald-300" />
-              <span className="text-[11px] tracking-[0.25em] font-medium">ELIJAH CHURCH OF CHRIST</span>
+              <span className="text-[11px] tracking-[0.25em] font-medium">
+                ELIJAH CHURCH OF CHRIST
+              </span>
             </motion.div>
             <motion.h1
-              initial={{ opacity:0, y:24 }}
-              animate={{ opacity:1, y:0 }}
-              transition={{ delay:0.45, duration:0.9 }}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45, duration: 0.9 }}
               className="font-semibold leading-[1.05] text-white text-4xl sm:text-5xl md:text-[4rem] md:leading-[1.05] tracking-tight"
             >
               Changing Lives. Healing Hearts.
-              <span className="block mt-3 text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-emerald-200 text-2xl md:text-3xl font-light tracking-wide">Founded on the Rock of Jesus Christ</span>
+              <span className="block mt-3 text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-emerald-200 text-2xl md:text-3xl font-light tracking-wide">
+                Founded on the Rock of Jesus Christ
+              </span>
             </motion.h1>
             <motion.p
-              initial={{ opacity:0, y:20 }}
-              animate={{ opacity:1, y:0 }}
-              transition={{ delay:0.7, duration:0.7 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.7 }}
               className="mt-8 text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             >
-              “Without being kind to one another we can’t please God” - Apostle Elijah. Join us as we serve the Lord through love, compassion, and transforming lives from the streets to the sanctuary.
+              “Without being kind to one another we can’t please God” - Apostle
+              Elijah. Join us as we serve the Lord through love, compassion, and
+              transforming lives from the streets to the sanctuary.
             </motion.p>
             <motion.div
-              initial={{ opacity:0, y:20 }}
-              animate={{ opacity:1, y:0 }}
-              transition={{ delay:0.85, duration:0.6 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.85, duration: 0.6 }}
               className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Link href="/about" className="group relative">
-                <Button size="lg" className="rounded-full px-10 py-6 bg-emerald-600 hover:bg-emerald-500 text-white text-base shadow-lg shadow-emerald-900/30">
+                <Button
+                  size="lg"
+                  className="rounded-full px-10 py-6 bg-emerald-600 hover:bg-emerald-500 text-white text-base shadow-lg shadow-emerald-900/30"
+                >
                   Our Story
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button variant="outline" size="lg" className="rounded-full px-10 py-6 border-white/30 text-white hover:bg-white/10">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-10 py-6 border-white/30 text-white hover:bg-white/10"
+                >
                   Join Us Sunday
                 </Button>
               </Link>
             </motion.div>
             <motion.div
-              initial={{ opacity:0, y:10 }}
-              animate={{ opacity:1, y:0 }}
-              transition={{ delay:1.05 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.05 }}
               className="mt-12 grid grid-cols-3 gap-8 max-w-md mx-auto text-left text-white/70"
             >
               {[
-                {label:'Foundation', value:'Matthew 7:24'},
-                {label:'Mission', value:'Healing'},
-                {label:'Heart', value:'Serving'}
-              ].map(s => (
+                { label: "Foundation", value: "Matthew 7:24" },
+                { label: "Mission", value: "Healing" },
+                { label: "Heart", value: "Serving" },
+              ].map((s) => (
                 <div key={s.label} className="space-y-1">
-                  <div className="text-[11px] uppercase tracking-wide text-white/40">{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-wide text-white/40">
+                    {s.label}
+                  </div>
                   <div className="font-medium text-white">{s.value}</div>
                 </div>
               ))}
@@ -506,11 +617,13 @@ export default function HomePage() {
         {/* Scroll cue */}
         <motion.div
           className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center"
-          animate={{ opacity:[0.3,1,0.3] }}
-          transition={{ duration:2.8, repeat:Infinity }}
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 2.8, repeat: Infinity }}
         >
           <div className="w-px h-12 bg-gradient-to-b from-white/70 to-white/0" />
-          <div className="mt-3 text-[10px] tracking-[0.3em] text-white/60">SCROLL</div>
+          <div className="mt-3 text-[10px] tracking-[0.3em] text-white/60">
+            SCROLL
+          </div>
         </motion.div>
       </section>
 
@@ -530,28 +643,30 @@ export default function HomePage() {
             >
               ✨ Ministry & Outreach
             </motion.div>
-            <motion.h2 
-              variants={itemFadeUp} 
+            <motion.h2
+              variants={itemFadeUp}
               className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
-              whileInView={{ 
+              whileInView={{
                 background: [
                   "linear-gradient(90deg, #059669, #10b981)",
                   "linear-gradient(90deg, #10b981, #14b8a6)",
                   "linear-gradient(90deg, #14b8a6, #10b981)",
-                  "linear-gradient(90deg, #10b981, #059669)"
-                ]
+                  "linear-gradient(90deg, #10b981, #059669)",
+                ],
               }}
               transition={{ duration: 4, repeat: Infinity }}
             >
               Our Ministry
             </motion.h2>
-            <motion.p 
-              variants={itemFadeUp} 
+            <motion.p
+              variants={itemFadeUp}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
               whileInView={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              Dedicated to changing lives, healing hearts, and producing future leaders for a godly world. Built on the foundation of Jesus Christ who died for our sins.
+              Dedicated to changing lives, healing hearts, and producing future
+              leaders for a godly world. Built on the foundation of Jesus Christ
+              who died for our sins.
             </motion.p>
           </motion.div>
 
@@ -563,32 +678,49 @@ export default function HomePage() {
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {homeServices.map((service, index) => (
-              <motion.div 
-                key={service.id} 
-                variants={itemFadeUp} 
+              <motion.div
+                key={service.id}
+                variants={itemFadeUp}
                 className="group"
-                whileHover={{ 
+                whileHover={{
                   y: -12,
                   rotateY: 5,
-                  scale: 1.02
+                  scale: 1.02,
                 }}
-                transition={{ 
-                  type: "spring", 
-                  stiffness: 300, 
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
                   damping: 20,
-                  duration: 0.4 
+                  duration: 0.4,
                 }}
               >
-                <Card className="h-full bg-white border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden relative">
+                <Card
+                  variant="glass"
+                  elevation="md"
+                  accent="emerald"
+                  interactive
+                  className="h-full overflow-hidden relative rounded-3xl hover:ring-1 hover:ring-emerald-200"
+                >
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background:
+                        "radial-gradient(80% 60% at 50% 0%, rgba(16,185,129,0.12), transparent)",
+                    }}
+                  />
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     initial={false}
                   />
-                  
+
                   <CardContent className="p-0 relative z-10">
                     {/* Service Image with Enhanced Effects */}
                     <div className="relative h-56 overflow-hidden">
-                      <motion.div whileHover={{ scale: 1.08 }} transition={{ duration: 0.6, ease: "easeOut" }} className="w-full h-full">
+                      <motion.div
+                        whileHover={{ scale: 1.06 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="w-full h-full"
+                      >
                         <SmartImage
                           src={service.image}
                           alt={service.title}
@@ -598,52 +730,6 @@ export default function HomePage() {
                           priority={index < 2}
                           asMotion={false}
                         />
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </motion.div>
-
-                      {/* Animated overlay */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
-
-                      {service.popular && (
-                        <motion.div
-                          initial={{ scale: 0, rotate: -180 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: index * 0.1 + 0.5, type: "spring", stiffness: 200 }}
-                        >
-                          <Badge className="absolute top-4 right-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg">
-                            🙏 Core Ministry
-                          </Badge>
-                        </motion.div>
-                      )}
-
-                      <motion.div 
-                        className="absolute bottom-4 left-4 right-4"
-                        initial={{ y: 20, opacity: 0 }}
-                        whileHover={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="flex justify-between items-center text-white drop-shadow-lg">
-                          <div className="flex items-center space-x-4">
-                            <motion.div 
-                              className="flex items-center bg-black/20 px-2 py-1 rounded-full backdrop-blur-sm"
-                              whileHover={{ scale: 1.1 }}
-                            >
-                              <Clock className="w-4 h-4 mr-1" />
-                              <span className="text-sm font-medium">{service.duration}</span>
-                            </motion.div>
-                            <motion.div 
-                              className="flex items-center bg-emerald-500/80 px-2 py-1 rounded-full backdrop-blur-sm"
-                              whileHover={{ scale: 1.1 }}
-                            >
-                              <span className="text-sm font-bold">{service.price}</span>
-                            </motion.div>
-                          </div>
-                        </div>
                       </motion.div>
                     </div>
 
@@ -661,7 +747,7 @@ export default function HomePage() {
                         </p>
                       </motion.div>
 
-                      <motion.p 
+                      <motion.p
                         className="text-gray-600 text-sm leading-relaxed line-clamp-3"
                         whileHover={{ color: "#374151" }}
                         transition={{ duration: 0.2 }}
@@ -690,11 +776,15 @@ export default function HomePage() {
               viewport={{ once: true, margin: "-80px" }}
               className="text-center mb-16"
             >
-              <motion.h2 variants={itemFadeUp} className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <motion.h2
+                variants={itemFadeUp}
+                className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+              >
                 Ministry & Fellowship
               </motion.h2>
               <motion.p variants={itemFadeUp} className="text-xl text-gray-600">
-                Glimpses of our church community, worship spaces, and fellowship activities where lives are transformed.
+                Glimpses of our church community, worship spaces, and fellowship
+                activities where lives are transformed.
               </motion.p>
             </motion.div>
             <GalleryCarousel />
@@ -703,7 +793,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Join Us Section */}
-  <section className="section-padding bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+      <section className="section-padding bg-gradient-to-br from-emerald-50 via-white to-teal-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             variants={containerStagger}
@@ -712,11 +802,19 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-80px" }}
             className="text-center mb-16"
           >
-            <motion.h2 variants={itemFadeUp} className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
               Why Join Our Church?
             </motion.h2>
-            <motion.p variants={itemFadeUp} className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Built on the foundation of Jesus Christ, our ministry focuses on changing lives, healing, and producing future leaders for a godly world.
+            <motion.p
+              variants={itemFadeUp}
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+            >
+              Built on the foundation of Jesus Christ, our ministry focuses on
+              changing lives, healing, and producing future leaders for a godly
+              world.
             </motion.p>
           </motion.div>
 
@@ -731,34 +829,44 @@ export default function HomePage() {
               {
                 icon: Cross,
                 title: "Biblical Foundation",
-                description: "Built on Matthew 7:24 - the solid rock of Jesus Christ",
+                description:
+                  "Built on Matthew 7:24 - the solid rock of Jesus Christ",
                 stat: "Mat 7:24",
-                statLabel: "Foundation"
+                statLabel: "Foundation",
               },
               {
                 icon: Heart,
                 title: "Healing Ministry",
-                description: "Experience God’s healing power through prayer and faith",
+                description:
+                  "Experience God’s healing power through prayer and faith",
                 stat: "Healing",
-                statLabel: "Hearts"
+                statLabel: "Hearts",
               },
               {
                 icon: Users,
                 title: "Street Outreach",
-                description: "Reaching the lost and demonstrating Christ’s love to all",
+                description:
+                  "Reaching the lost and demonstrating Christ’s love to all",
                 stat: "Weekly",
-                statLabel: "Outreach"
+                statLabel: "Outreach",
               },
               {
                 icon: Crown,
                 title: "Leadership Development",
-                description: "Producing future leaders for a better godly world",
+                description:
+                  "Producing future leaders for a better godly world",
                 stat: "Future",
-                statLabel: "Leaders"
-              }
+                statLabel: "Leaders",
+              },
             ].map((feature, index) => (
               <motion.div key={feature.title} variants={itemFadeUp}>
-                <Card className="h-full text-center p-8 bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group">
+                <Card
+                  variant="glass"
+                  elevation="md"
+                  accent="emerald"
+                  interactive
+                  className="h-full text-center p-8 group"
+                >
                   <CardContent className="space-y-6">
                     <motion.div
                       className="w-16 h-16 mx-auto mb-6 relative"
@@ -768,7 +876,7 @@ export default function HomePage() {
                       <feature.icon className="w-full h-full text-emerald-600" />
                       <div className="absolute inset-0 rounded-full bg-emerald-100 -z-10 group-hover:bg-emerald-200 transition-colors"></div>
                     </motion.div>
-                    
+
                     <motion.div
                       className="text-3xl font-bold animated-text-gradient mb-2"
                       whileInView={{ scale: [1, 1.2, 1] }}
@@ -777,12 +885,14 @@ export default function HomePage() {
                     >
                       {feature.stat}
                     </motion.div>
-                    <div className="text-sm text-emerald-600 font-medium mb-4">{feature.statLabel}</div>
-                    
+                    <div className="text-sm text-emerald-600 font-medium mb-4">
+                      {feature.statLabel}
+                    </div>
+
                     <h3 className="text-xl font-semibold text-gray-900 mb-3">
                       {feature.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 leading-relaxed">
                       {feature.description}
                     </p>
@@ -804,11 +914,18 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-80px" }}
             className="text-center mb-16"
           >
-            <motion.h2 variants={itemFadeUp} className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
               Our Mission & Vision
             </motion.h2>
-            <motion.p variants={itemFadeUp} className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Rooted in Matthew 7:24, we exist to preach Christ, make disciples, and serve our city with compassion—building on the solid Rock.
+            <motion.p
+              variants={itemFadeUp}
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+            >
+              Rooted in Matthew 7:24, we exist to preach Christ, make disciples,
+              and serve our city with compassion—building on the solid Rock.
             </motion.p>
           </motion.div>
 
@@ -819,13 +936,20 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-60px" }}
             className="grid md:grid-cols-2 gap-8"
           >
-            <motion.div variants={itemFadeUp} className="p-8 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-100">
+            <motion.div
+              variants={itemFadeUp}
+              className="p-8 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-100"
+            >
               <div className="flex items-center gap-3 mb-4">
                 <Cross className="w-6 h-6 text-emerald-600" />
-                <h3 className="text-2xl font-semibold text-gray-900">Mission</h3>
+                <h3 className="text-2xl font-semibold text-gray-900">
+                  Mission
+                </h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                To proclaim the Gospel of Jesus Christ, heal the broken, and raise leaders who transform families and communities through love, faith, and service.
+                To proclaim the Gospel of Jesus Christ, heal the broken, and
+                raise leaders who transform families and communities through
+                love, faith, and service.
               </p>
               <ul className="mt-4 text-gray-700 space-y-2">
                 <li>• Preach Christ crucified and risen</li>
@@ -833,13 +957,18 @@ export default function HomePage() {
                 <li>• Serve the poor and vulnerable</li>
               </ul>
             </motion.div>
-            <motion.div variants={itemFadeUp} className="p-8 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-100">
+            <motion.div
+              variants={itemFadeUp}
+              className="p-8 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-100"
+            >
               <div className="flex items-center gap-3 mb-4">
                 <Crown className="w-6 h-6 text-emerald-700" />
                 <h3 className="text-2xl font-semibold text-gray-900">Vision</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                A vibrant Christ-centered church where lives are changed, families restored, and future leaders are released to impact the nations for God’s glory.
+                A vibrant Christ-centered church where lives are changed,
+                families restored, and future leaders are released to impact the
+                nations for God’s glory.
               </p>
               <ul className="mt-4 text-gray-700 space-y-2">
                 <li>• A house of prayer for all</li>
@@ -861,10 +990,16 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-80px" }}
             className="text-center mb-16"
           >
-            <motion.h2 variants={itemFadeUp} className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
               Ministry Highlights
             </motion.h2>
-            <motion.p variants={itemFadeUp} className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <motion.p
+              variants={itemFadeUp}
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+            >
               Ways we grow, serve, and witness Christ’s power together.
             </motion.p>
           </motion.div>
@@ -876,19 +1011,57 @@ export default function HomePage() {
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {[
-              { icon: Cross, title: "Evangelism", text: "Sharing Jesus in streets, homes, and workplaces." },
-              { icon: BookOpen, title: "Teaching", text: "Bible studies and discipleship tracks for all ages." },
-              { icon: Church, title: "Worship", text: "Spirit-led worship encounters centered on Christ." },
-              { icon: Users, title: "Youth & Kids", text: "Raising a generation that knows and follows God." },
-              { icon: HandHeart, title: "Compassion", text: "Feeding programs and practical care to the needy." },
-              { icon: Shield, title: "Prayer", text: "Intercession, counseling, and healing ministry." },
+              {
+                icon: Cross,
+                title: "Evangelism",
+                text: "Sharing Jesus in streets, homes, and workplaces.",
+              },
+              {
+                icon: BookOpen,
+                title: "Teaching",
+                text: "Bible studies and discipleship tracks for all ages.",
+              },
+              {
+                icon: Church,
+                title: "Worship",
+                text: "Spirit-led worship encounters centered on Christ.",
+              },
+              {
+                icon: Users,
+                title: "Youth & Kids",
+                text: "Raising a generation that knows and follows God.",
+              },
+              {
+                icon: HandHeart,
+                title: "Compassion",
+                text: "Feeding programs and practical care to the needy.",
+              },
+              {
+                icon: Shield,
+                title: "Prayer",
+                text: "Intercession, counseling, and healing ministry.",
+              },
             ].map((m, i) => (
-              <motion.div key={m.title} variants={itemFadeUp} whileHover={{ y: -6 }} className="p-6 bg-white rounded-xl border border-gray-100 shadow hover:shadow-lg transition-all">
-                <div className="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
-                  <m.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{m.title}</h3>
-                <p className="text-gray-600">{m.text}</p>
+              <motion.div
+                key={m.title}
+                variants={itemFadeUp}
+                whileHover={{ y: -6 }}
+              >
+                <Card
+                  variant="solid"
+                  elevation="sm"
+                  accent="emerald"
+                  interactive
+                  className="p-6"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+                    <m.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {m.title}
+                  </h3>
+                  <p className="text-gray-600">{m.text}</p>
+                </Card>
               </motion.div>
             ))}
           </motion.div>
@@ -905,11 +1078,18 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-80px" }}
             className="text-center mb-16"
           >
-            <motion.h2 variants={itemFadeUp} className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
               Your Journey With Us
             </motion.h2>
-            <motion.p variants={itemFadeUp} className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join our family of believers and experience transformation through Christ’s love and community fellowship.
+            <motion.p
+              variants={itemFadeUp}
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+            >
+              Join our family of believers and experience transformation through
+              Christ’s love and community fellowship.
             </motion.p>
           </motion.div>
 
@@ -925,30 +1105,33 @@ export default function HomePage() {
                 step: "01",
                 title: "Visit Us",
                 description: "Come as you are to experience authentic worship",
-                icon: "�️",
-                duration: "Sunday"
+                icon: MapPin,
+                duration: "Sunday",
               },
               {
-                step: "02", 
+                step: "02",
                 title: "Connect",
-                description: "Meet our community and share your journey with us",
-                icon: "🤝",
-                duration: "Fellowship"
+                description:
+                  "Meet our community and share your journey with us",
+                icon: Handshake,
+                duration: "Fellowship",
               },
               {
                 step: "03",
                 title: "Grow",
-                description: "Participate in ministry, healing, and leadership development",
-                icon: "�",
-                duration: "Weekly"
+                description:
+                  "Participate in ministry, healing, and leadership development",
+                icon: Activity,
+                duration: "Weekly",
               },
               {
                 step: "04",
                 title: "Serve",
-                description: "Join our outreach and help change lives in the community",
-                icon: "❤️",
-                duration: "Ministry"
-              }
+                description:
+                  "Join our outreach and help change lives in the community",
+                icon: HandHeart,
+                duration: "Ministry",
+              },
             ].map((step, index) => (
               <motion.div
                 key={step.step}
@@ -959,7 +1142,7 @@ export default function HomePage() {
               >
                 {/* Animated Connecting Line */}
                 {index < 3 && (
-                  <motion.div 
+                  <motion.div
                     className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-emerald-300 to-teal-200 z-0"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
@@ -967,116 +1150,116 @@ export default function HomePage() {
                     style={{ originX: 0 }}
                   />
                 )}
-                
+
                 <div className="relative z-10">
                   {/* Enhanced Step Circle */}
-                  <motion.div 
+                  <motion.div
                     className="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-lg relative overflow-hidden group cursor-pointer"
-                    whileHover={{ 
-                      scale: 1.15, 
+                    whileHover={{
+                      scale: 1.15,
                       rotate: 10,
-                      boxShadow: "0 20px 40px rgba(16, 185, 129, 0.3)"
+                      boxShadow: "0 20px 40px rgba(16, 185, 129, 0.3)",
                     }}
                     whileTap={{ scale: 0.95 }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 400, 
-                      damping: 15 
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 15,
                     }}
                     initial={{ scale: 0, rotate: -180 }}
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
-                    style={{ 
-                      transitionDelay: `${index * 150}ms` 
+                    style={{
+                      transitionDelay: `${index * 150}ms`,
                     }}
                   >
                     {/* Pulsing background */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-emerald-100 via-emerald-200 to-teal-200 rounded-full"
-                      animate={{ 
+                      animate={{
                         scale: [1, 1.1, 1],
-                        opacity: [0.3, 0.6, 0.3]
+                        opacity: [0.3, 0.6, 0.3],
                       }}
-                      transition={{ 
-                        duration: 2, 
+                      transition={{
+                        duration: 2,
                         repeat: Infinity,
-                        delay: index * 0.5
+                        delay: index * 0.5,
                       }}
                     />
-                    
+
                     {/* Icon with bounce */}
-                    <motion.span 
-                      className="text-2xl mb-1 relative z-10"
-                      animate={{ 
-                        y: [0, -2, 0] 
-                      }}
-                      transition={{ 
-                        duration: 2, 
+                    <motion.div
+                      className="relative z-10 text-emerald-700"
+                      animate={{ y: [0, -2, 0] }}
+                      transition={{
+                        duration: 2,
                         repeat: Infinity,
-                        delay: index * 0.3
+                        delay: index * 0.3,
                       }}
                     >
-                      {step.icon}
-                    </motion.span>
-                    
+                      {React.createElement(step.icon as any, {
+                        className: "w-7 h-7",
+                      })}
+                    </motion.div>
+
                     {/* Step number badge */}
-                    <motion.div 
+                    <motion.div
                       className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.2,
-                        rotate: 360
+                        rotate: 360,
                       }}
                       transition={{ duration: 0.5 }}
                     >
                       {step.step}
                     </motion.div>
-                    
+
                     {/* Ripple effect */}
                     <motion.div
                       className="absolute inset-0 border-2 border-emerald-300 rounded-full opacity-0"
-                      animate={{ 
-                        scale: [1, 2], 
-                        opacity: [0.5, 0] 
+                      animate={{
+                        scale: [1, 2],
+                        opacity: [0.5, 0],
                       }}
-                      transition={{ 
-                        duration: 2, 
+                      transition={{
+                        duration: 2,
                         repeat: Infinity,
-                        delay: index * 0.4
+                        delay: index * 0.4,
                       }}
                     />
                   </motion.div>
-                  
+
                   {/* Step content with enhanced animations */}
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <motion.h3 
+                    <motion.h3
                       className="text-xl font-semibold text-gray-900 mb-3"
-                      whileInView={{ 
-                        color: ["#111827", "#059669", "#111827"]
+                      whileInView={{
+                        color: ["#111827", "#059669", "#111827"],
                       }}
-                      transition={{ 
-                        duration: 2, 
+                      transition={{
+                        duration: 2,
                         repeat: Infinity,
-                        delay: index * 0.5
+                        delay: index * 0.5,
                       }}
                       viewport={{ once: true }}
                     >
                       {step.title}
                     </motion.h3>
-                    <motion.p 
+                    <motion.p
                       className="text-gray-600 mb-3 leading-relaxed"
                       whileHover={{ color: "#374151" }}
                       transition={{ duration: 0.2 }}
                     >
                       {step.description}
                     </motion.p>
-                    <motion.div 
+                    <motion.div
                       className="text-sm text-emerald-600 font-medium bg-emerald-50 px-3 py-1 rounded-full inline-block"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.1,
-                        backgroundColor: "#ecfdf5"
+                        backgroundColor: "#ecfdf5",
                       }}
                       transition={{ duration: 0.2 }}
                     >
@@ -1090,21 +1273,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto">
+      {/* Service Times & Events */}
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             variants={containerStagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
-            className="text-center mb-16"
+            className="text-center mb-14"
           >
-            <motion.h2 variants={itemFadeUp} className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Frequently Asked Questions
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Service Times & Events
             </motion.h2>
-            <motion.p variants={itemFadeUp} className="text-xl text-gray-600">
-              Everything you need to know about visiting Elijah Church of Christ
+            <motion.p
+              variants={itemFadeUp}
+              className="text-lg text-gray-600 max-w-3xl mx-auto"
+            >
+              Join us weekly and stay tuned for upcoming gatherings that grow
+              faith and community.
             </motion.p>
           </motion.div>
 
@@ -1113,47 +1303,61 @@ export default function HomePage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-60px" }}
-            className="space-y-6"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {[ 
+            {[
               {
-                q: "What time are services?",
-                a: "Sunday Service 10:00 AM. Midweek Prayer Wednesday 6:00 PM. Youth & Teens Saturday 10:00 AM. Join us a few minutes early to connect."
+                img: "/croud2.jpeg",
+                title: "Sunday Celebration Service",
+                detail: "Worship, Word, and Ministry",
+                time: "Every Sunday • 10:00 AM",
               },
               {
-                q: "What should I wear?",
-                a: "Come as you are. Some dress casual, some dress formal—everyone is welcome."
+                img: "/helping6.jpeg",
+                title: "Midweek Prayer Night",
+                detail: "Intercession and Healing",
+                time: "Wednesdays • 6:00 PM",
               },
               {
-                q: "Is there children’s ministry?",
-                a: "Yes. Children’s Church runs during the main service. Check‑in opens 15 minutes before service."
+                img: "/board2.jpeg",
+                title: "Leadership Track",
+                detail: "Raising Future Leaders",
+                time: "Monthly • Saturdays",
               },
-              {
-                q: "Is parking available?",
-                a: "Yes, free on‑site parking with volunteer assistance. Please follow the directions when you arrive."
-              },
-              {
-                q: "How can I receive prayer or counseling?",
-                a: "Our prayer team is available after every service. You can also request a confidential appointment via our Contact page."
-              },
-              {
-                q: "How can I give or partner with the church?",
-                a: "You can give during service, online, or via WhatsApp. We appreciate your partnership in advancing the Gospel."
-              }
-            ].map((faq, index) => (
-              <motion.div key={index} variants={itemFadeUp}>
-                <Card className="p-6 bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <CardContent>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                      <span className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-sm font-bold mr-3">
-                        Q
-                      </span>
-                      {faq.q}
+            ].map((e, i) => (
+              <motion.div key={e.title} variants={itemFadeUp} className="group">
+                <Card
+                  variant="glass"
+                  elevation="md"
+                  accent="emerald"
+                  interactive
+                  className="overflow-hidden rounded-3xl"
+                >
+                  <div className="relative h-44 overflow-hidden">
+                    <motion.div
+                      className="h-full w-full"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Image
+                        src={e.img}
+                        alt={e.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  </div>
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      {e.title}
                     </h3>
-                    <p className="text-gray-600 ml-11 leading-relaxed">
-                      {faq.a}
-                    </p>
-                  </CardContent>
+                    <p className="text-emerald-700 font-medium">{e.detail}</p>
+                    <div className="flex items-center text-gray-600 text-sm gap-2">
+                      <Clock className="w-4 h-4 text-emerald-600" />
+                      <span>{e.time}</span>
+                    </div>
+                  </div>
                 </Card>
               </motion.div>
             ))}
@@ -1161,7 +1365,88 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonies */}
+      {/* Get Involved */}
+      <section className="section-padding bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center mb-14"
+          >
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Get Involved
+            </motion.h2>
+            <motion.p
+              variants={itemFadeUp}
+              className="text-lg text-gray-600 max-w-3xl mx-auto"
+            >
+              Take your next step: join a team, connect in groups, or partner to
+              move the mission forward.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {[
+              {
+                icon: HandHeart,
+                title: "Serve on a Team",
+                text: "Hospitality, prayer, outreach, worship — there’s a place for you.",
+              },
+              {
+                icon: Users,
+                title: "Small Groups",
+                text: "Grow in discipleship and community throughout the week.",
+              },
+              {
+                icon: Crown,
+                title: "Partner with Us",
+                text: "Pray, give, and spread the word to fuel the vision.",
+              },
+            ].map((c) => (
+              <motion.div key={c.title} variants={itemFadeUp}>
+                <Card
+                  variant="solid"
+                  elevation="sm"
+                  accent="emerald"
+                  interactive
+                  className="p-6 rounded-2xl h-full"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+                    {React.createElement(c.icon as any, {
+                      className: "w-6 h-6",
+                    })}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {c.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{c.text}</p>
+                  <Link href="/contact">
+                    <Button
+                      variant="outline"
+                      className="border-emerald-300 text-emerald-700 hover:bg-emerald-50"
+                    >
+                      Learn More
+                    </Button>
+                  </Link>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonies (final section at bottom) */}
       <section className="section-padding bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -1180,21 +1465,16 @@ export default function HomePage() {
                 <span className="text-sm font-medium">Praise Reports</span>
               </div>
             </motion.div>
-            
-            <motion.h2 
-              variants={itemFadeUp} 
+            <motion.h2
+              variants={itemFadeUp}
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             >
               Testimonies
             </motion.h2>
-            <motion.p 
-              variants={itemFadeUp} 
-              className="text-lg text-gray-600"
-            >
+            <motion.p variants={itemFadeUp} className="text-lg text-gray-600">
               Stories of healing and transformation at Elijah Church of Christ
             </motion.p>
           </motion.div>
-          {/* Google-style Reviews Grid */}
           <motion.div
             variants={containerStagger}
             initial="hidden"
@@ -1208,156 +1488,269 @@ export default function HomePage() {
                 avatar: "TM",
                 rating: 5,
                 date: "2 weeks ago",
-                review: "I came heavy‑hearted and left with peace. The prayer team stood with me, and I witnessed God’s hand restoring my family.",
-                helpful: 9
+                review:
+                  "I came heavy‑hearted and left with peace. The prayer team stood with me, and I witnessed God’s hand restoring my family.",
+                helpful: 9,
               },
               {
-                name: "James R.", 
-                avatar: "JR", 
+                name: "James R.",
+                avatar: "JR",
                 rating: 5,
                 date: "1 month ago",
-                review: "Powerful worship and practical teaching. I felt welcomed from the moment I walked in—this church has become my family.",
-                helpful: 6
+                review:
+                  "Powerful worship and practical teaching. I felt welcomed from the moment I walked in—this church has become my family.",
+                helpful: 6,
               },
               {
                 name: "Ayesha P.",
                 avatar: "AP",
                 rating: 5,
-                date: "3 weeks ago", 
-                review: "My child loves the Children’s Church and looks forward to Sundays. We’ve seen real growth in our home since coming to ECC.",
-                helpful: 11
-              }
+                date: "3 weeks ago",
+                review:
+                  "My child loves the Children’s Church and looks forward to Sundays. We’ve seen real growth in our home since coming to ECC.",
+                helpful: 11,
+              },
             ].map((review, index) => (
               <motion.div
                 key={review.name}
                 variants={itemFadeUp}
-                className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 group max-w-4xl mx-auto"
+                className="max-w-4xl mx-auto"
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.2 }}
               >
-                {/* Review Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    {/* User Avatar */}
-                    <motion.div 
-                      className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-medium text-sm"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {review.avatar}
-                    </motion.div>
-                    <div>
-                      <motion.h4 
-                        className="font-medium text-gray-900 hover:text-blue-600 cursor-pointer transition-colors duration-200"
-                        whileHover={{ x: 2 }}
+                <Card
+                  variant="solid"
+                  elevation="sm"
+                  accent="emerald"
+                  interactive
+                  className="p-6 rounded-2xl"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <motion.div
+                        className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-medium text-sm"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        {review.name}
-                      </motion.h4>
-                      <div className="flex items-center space-x-2 text-sm text-gray-500">
-                        <span>{review.date}</span>
-                        <span>•</span>
-                        <div className="flex items-center space-x-1">
-                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                          </svg>
-                          <span>Johannesburg</span>
+                        {review.avatar}
+                      </motion.div>
+                      <div>
+                        <motion.h4
+                          className="font-medium text-gray-900 hover:text-blue-600 cursor-pointer transition-colors duration-200"
+                          whileHover={{ x: 2 }}
+                        >
+                          {review.name}
+                        </motion.h4>
+                        <div className="flex items-center space-x-2 text-sm text-gray-500">
+                          <span>{review.date}</span>
+                          <span>•</span>
+                          <div className="flex items-center space-x-1">
+                            <svg
+                              className="w-4 h-4"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                            >
+                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            <span>Johannesburg</span>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <motion.button
+                      className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <svg
+                        className="w-5 h-5 text-gray-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+                      </svg>
+                    </motion.button>
                   </div>
-                  
-                  {/* More options button */}
-                  <motion.button 
-                    className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                  <motion.div
+                    className="flex items-center space-x-1 mb-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 + 0.3 }}
                   >
-                    <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/>
-                    </svg>
-                  </motion.button>
-                </div>
-
-                {/* Star Rating */}
-                <motion.div 
-                  className="flex items-center space-x-1 mb-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                >
-                  {[...Array(review.rating)].map((_, i) => (
-                    <motion.svg
-                      key={i}
-                      className="w-4 h-4 text-yellow-400 fill-current"
-                      viewBox="0 0 20 20"
-                      initial={{ scale: 0, rotate: -180 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      transition={{ 
-                        delay: index * 0.1 + i * 0.05 + 0.4,
-                        type: "spring",
-                        stiffness: 200
-                      }}
-                      whileHover={{ scale: 1.2 }}
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </motion.svg>
-                  ))}
-                </motion.div>
-
-                {/* Review Text */}
-                <motion.p 
-                  className="text-gray-700 leading-relaxed mb-4 text-sm"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.6 }}
-                >
-                  {review.review}
-                </motion.p>
-
-                {/* Review Actions */}
-                <motion.div 
-                  className="flex items-center justify-between pt-3 border-t border-gray-100"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.8 }}
-                >
-                  <div className="flex items-center space-x-4">
-                    {/* Helpful button */}
-                    <motion.button 
-                      className="flex items-center space-x-2 text-gray-500 hover:text-blue-600 transition-colors duration-200 text-sm"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L9 6v11.5m0 0L7 20"/>
+                    {[...Array(review.rating)].map((_, i) => (
+                      <motion.svg
+                        key={i}
+                        className="w-4 h-4 text-yellow-400 fill-current"
+                        viewBox="0 0 20 20"
+                        initial={{ scale: 0, rotate: -180 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        transition={{
+                          delay: index * 0.1 + i * 0.05 + 0.4,
+                          type: "spring",
+                          stiffness: 200,
+                        }}
+                        whileHover={{ scale: 1.2 }}
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </motion.svg>
+                    ))}
+                  </motion.div>
+                  <motion.p
+                    className="text-gray-700 leading-relaxed mb-4 text-sm"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: index * 0.1 + 0.6 }}
+                  >
+                    {review.review}
+                  </motion.p>
+                  <motion.div
+                    className="flex items-center justify-between pt-3 border-t border-gray-100"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.8 }}
+                  >
+                    <div className="flex items-center space-x-4">
+                      <motion.button
+                        className="flex items-center space-x-2 text-gray-500 hover:text-blue-600 transition-colors duration-200 text-sm"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L9 6v11.5m0 0L7 20"
+                          />
+                        </svg>
+                        <span>Helpful ({review.helpful})</span>
+                      </motion.button>
+                      <motion.button
+                        className="flex items-center space-x-2 text-gray-500 hover:text-blue-600 transition-colors duration-200 text-sm"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
+                          />
+                        </svg>
+                        <span>Share</span>
+                      </motion.button>
+                    </div>
+                    <div className="flex items-center space-x-1 text-xs text-gray-500">
+                      <svg
+                        className="w-3 h-3 text-blue-500"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
                       </svg>
-                      <span>Helpful ({review.helpful})</span>
-                    </motion.button>
-
-                    {/* Share button */}
-                    <motion.button 
-                      className="flex items-center space-x-2 text-gray-500 hover:text-blue-600 transition-colors duration-200 text-sm"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
-                      </svg>
-                      <span>Share</span>
-                    </motion.button>
-                  </div>
-
-                  {/* Google verified checkmark */}
-                  <div className="flex items-center space-x-1 text-xs text-gray-500">
-                    <svg className="w-3 h-3 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Verified</span>
-                  </div>
-                </motion.div>
+                      <span>Verified</span>
+                    </div>
+                  </motion.div>
+                </Card>
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section (moved near bottom, before CTA) */}
+      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center mb-10"
+          >
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Frequently Asked Questions
+            </motion.h2>
+            <motion.p variants={itemFadeUp} className="text-xl text-gray-600">
+              Everything you need to know about visiting Elijah Church of Christ
+            </motion.p>
+          </motion.div>
+          <Accordion.Root type="single" collapsible className="space-y-3">
+            {[
+              {
+                q: "What time are services?",
+                a: "Sunday Service 10:00 AM. Midweek Prayer Wednesday 6:00 PM. Youth & Teens Saturday 10:00 AM. Join us a few minutes early to connect.",
+              },
+              {
+                q: "What should I wear?",
+                a: "Come as you are. Some dress casual, some dress formal—everyone is welcome.",
+              },
+              {
+                q: "Is there children’s ministry?",
+                a: "Yes. Children’s Church runs during the main service. Check‑in opens 15 minutes before service.",
+              },
+              {
+                q: "Is parking available?",
+                a: "Yes, free on‑site parking with volunteer assistance. Please follow the directions when you arrive.",
+              },
+              {
+                q: "How can I receive prayer or counseling?",
+                a: "Our prayer team is available after every service. You can also request a confidential appointment via our Contact page.",
+              },
+              {
+                q: "How can I give or partner with the church?",
+                a: "You can give during service, online, or via WhatsApp. We appreciate your partnership in advancing the Gospel.",
+              },
+            ].map((faq, i) => (
+              <Accordion.Item
+                key={faq.q}
+                value={`item-${i}`}
+                className="focus:outline-none"
+              >
+                <Card
+                  variant="glass"
+                  elevation="sm"
+                  accent="emerald"
+                  className="overflow-hidden"
+                >
+                  <Accordion.Header>
+                    <Accordion.Trigger className="w-full flex items-center justify-between p-5 text-left text-gray-900 font-medium group">
+                      <span className="flex items-center">
+                        <span className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-sm font-bold mr-3">
+                          Q
+                        </span>
+                        {faq.q}
+                      </span>
+                      <ChevronDown className="w-5 h-5 text-gray-500 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                    <div className="px-5 pb-5 text-gray-600 leading-relaxed">
+                      {faq.a}
+                    </div>
+                  </Accordion.Content>
+                </Card>
+              </Accordion.Item>
+            ))}
+          </Accordion.Root>
         </div>
       </section>
 
@@ -1368,7 +1761,7 @@ export default function HomePage() {
           <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
           <div className="absolute bottom-10 right-10 w-48 h-48 bg-white/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
         </div>
-        
+
         <div className="max-w-4xl mx-auto text-center relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -1377,19 +1770,26 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-6xl font-bold text-white mb-8"
-              animate={{ textShadow: ["0 0 18px rgba(255,255,255,0.4)", "0 0 36px rgba(255,255,255,0.7)", "0 0 18px rgba(255,255,255,0.4)"] }}
+              animate={{
+                textShadow: [
+                  "0 0 18px rgba(255,255,255,0.4)",
+                  "0 0 36px rgba(255,255,255,0.7)",
+                  "0 0 18px rgba(255,255,255,0.4)",
+                ],
+              }}
               transition={{ duration: 3, repeat: Infinity }}
             >
               Ready to Visit or Need Prayer?
             </motion.h2>
-            
+
             <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-              We’d love to meet you. Reach out for prayer, plan your visit, or ask about ministries and serving opportunities.
+              We’d love to meet you. Reach out for prayer, plan your visit, or
+              ask about ministries and serving opportunities.
             </p>
 
-            <motion.div 
+            <motion.div
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8 inline-block"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
@@ -1397,7 +1797,9 @@ export default function HomePage() {
               <div className="flex items-center justify-center space-x-8 text-white">
                 <div className="text-center">
                   <div className="text-2xl font-bold">3 Services</div>
-                  <div className="text-sm opacity-80">Sunday • Midweek • Youth</div>
+                  <div className="text-sm opacity-80">
+                    Sunday • Midweek • Youth
+                  </div>
                 </div>
                 <div className="w-px h-8 bg-white/30"></div>
                 <div className="text-center">
@@ -1413,11 +1815,20 @@ export default function HomePage() {
             </motion.div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-  <Link href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20plan%20a%20visit%20and%20request%20prayer." target="_blank">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-      <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-50 text-lg px-12 py-6 rounded-full group shadow-2xl">
-        <Calendar className="mr-2 h-5 w-5" />
-        WhatsApp Us
+              <Link
+                href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20plan%20a%20visit%20and%20request%20prayer."
+                target="_blank"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    size="lg"
+                    className="bg-white text-emerald-600 hover:bg-gray-50 text-lg px-12 py-6 rounded-full group shadow-2xl"
+                  >
+                    <Calendar className="mr-2 h-5 w-5" />
+                    WhatsApp Us
                     <motion.div
                       className="ml-2"
                       animate={{ x: [0, 5, 0] }}
@@ -1428,24 +1839,34 @@ export default function HomePage() {
                   </Button>
                 </motion.div>
               </Link>
-              
-      <Link href="/services">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10 text-lg px-12 py-6 rounded-full">
-        Explore Ministries
+
+              <Link href="/services">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white/10 text-lg px-12 py-6 rounded-full"
+                  >
+                    Explore Ministries
                   </Button>
                 </motion.div>
               </Link>
             </div>
 
-            <motion.div 
+            <motion.div
               className="text-white/80 text-sm mt-8"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <p>✓ Warm welcome • ✓ Confidential prayer • ✓ Christ-centered community</p>
+              <p>
+                ✓ Warm welcome • ✓ Confidential prayer • ✓ Christ-centered
+                community
+              </p>
             </motion.div>
           </motion.div>
         </div>

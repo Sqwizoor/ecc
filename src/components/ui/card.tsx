@@ -1,19 +1,53 @@
 import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-xl border bg-card text-card-foreground shadow",
-      className
-    )}
-    {...props}
-  />
-))
+const cardVariants = cva(
+  "group rounded-2xl border transition-all duration-300 text-card-foreground",
+  {
+    variants: {
+      variant: {
+        glass: "bg-white/80 backdrop-blur-sm",
+        solid: "bg-white",
+        soft: "bg-gray-50",
+        outline: "bg-transparent",
+      },
+      elevation: {
+        none: "shadow-none",
+        sm: "shadow-sm hover:shadow-md",
+        md: "shadow hover:shadow-lg",
+      },
+      interactive: {
+        true: "hover:-translate-y-1",
+        false: "",
+      },
+      accent: {
+        default: "border-gray-200",
+        emerald: "border-emerald-300",
+      },
+    },
+    defaultVariants: {
+      variant: "glass",
+      elevation: "sm",
+      interactive: false,
+      accent: "default",
+    },
+  }
+)
+
+export interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof cardVariants> {}
+
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ className, variant, elevation, interactive, accent, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(cardVariants({ variant, elevation, interactive, accent, className }))}
+      {...props}
+    />
+  )
+)
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<
@@ -34,7 +68,7 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("font-semibold leading-none tracking-tight", className)}
+    className={cn("font-semibold leading-tight tracking-tight text-gray-900", className)}
     {...props}
   />
 ))
@@ -46,7 +80,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-gray-600", className)}
     {...props}
   />
 ))
