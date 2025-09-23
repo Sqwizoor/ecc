@@ -30,7 +30,7 @@ const cardVariants = cva(
       variant: "glass",
       elevation: "sm",
       interactive: false,
-      accent: "default",
+      accent: "emerald",
     },
   }
 )

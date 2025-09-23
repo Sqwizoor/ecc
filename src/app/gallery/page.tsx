@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,18 +25,10 @@ const mediaData: Array<{ id: string; type: "image"; src: string; alt: string; ta
   { id: "g13", type: "image", src: "/poolpit.jpeg", alt: "Apostle Elijah leading worship", tags: ["leadership", "worship"] },
 ];
 
-const allTags = ["all", "worship", "ministry", "outreach", "community", "prayer", "fellowship", "youth", "children", "bible", "healing", "service", "events", "leadership", "study", "counseling", "restoration", "sanctuary"] as const;
-
-type Tag = typeof allTags[number];
+// Filtering removed
 
 export default function GalleryPage() {
-  const [tag, setTag] = useState<Tag>("all");
   const [lightbox, setLightbox] = useState<null | { id: string }>(null);
-
-  const filtered = useMemo(() => {
-    if (tag === "all") return mediaData;
-    return mediaData.filter((m) => m.tags.includes(tag));
-  }, [tag]);
 
   const openLightbox = useCallback((id: string) => setLightbox({ id }), []);
   const closeLightbox = useCallback(() => setLightbox(null), []);
@@ -83,24 +75,7 @@ export default function GalleryPage() {
             </motion.p>
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {allTags.map((t) => (
-              <motion.button
-                key={t}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setTag(t)}
-                className={`px-4 py-2 rounded-full border text-sm font-medium transition-all ${
-                  tag === t
-                    ? "bg-emerald-500 text-white border-emerald-500 shadow"
-                    : "bg-white text-gray-700 border-gray-200 hover:border-emerald-300 hover:text-emerald-700"
-                }`}
-              >
-                {t === "all" ? "All" : t[0].toUpperCase() + t.slice(1)}
-              </motion.button>
-            ))}
-          </div>
+          {/* Filters removed per request */}
         </div>
       </section>
 
@@ -113,7 +88,7 @@ export default function GalleryPage() {
             transition={{ layout: { duration: 0.3 } }}
           >
             <AnimatePresence>
-              {filtered.map((item) => (
+              {mediaData.map((item) => (
                 <motion.div
                   key={item.id}
                   layout
@@ -122,7 +97,7 @@ export default function GalleryPage() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.35 }}
                 >
-                  <Card className="overflow-hidden bg-white border border-gray-100 shadow hover:shadow-xl transition-shadow duration-300 group cursor-pointer">
+                  <Card className="overflow-hidden bg-white border border-emerald-200 shadow hover:shadow-xl transition-shadow duration-300 group cursor-pointer">
                     <CardContent className="p-0 relative">
                       <div className="relative aspect-[4/3]">
                         <Image

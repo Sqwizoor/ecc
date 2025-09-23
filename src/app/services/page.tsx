@@ -431,7 +431,7 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>+27 76 207 3299</span>
+                <span>+27 63 731 0437</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />

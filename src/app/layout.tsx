@@ -30,7 +30,7 @@ const exo2 = Exo_2({
 
 export const metadata: Metadata = {
   title: "Elijah Church of Christ | Changing Lives Through Faith",
-  description: "Elijah Church of Christ – founded by Apostle Elijah. Healing ministry, street outreach, leadership development. Join us: +27 76 207 3299",
+  description: "Elijah Church of Christ – founded by Apostle Elijah. Healing ministry, street outreach, leadership development. Join us: +27 63 731 0437",
 };
 
 export default function RootLayout({
@@ -68,8 +68,8 @@ export default function RootLayout({
             </div>
             <div className="text-sm text-gray-700 space-y-2">
               <h4 className="font-semibold text-gray-900 mb-3 tracking-wide">Contact</h4>
-              <p><span className="text-gray-500">Phone:</span> <a href="tel:+27762073299" className="font-medium hover:text-emerald-600 transition-colors">+27 76 207 3299</a></p>
-              <p><span className="text-gray-500">WhatsApp:</span> <a href="https://wa.me/27762073299" target="_blank" rel="noopener" className="font-medium hover:text-emerald-600">Join Service</a></p>
+              <p><span className="text-gray-500">Phone:</span> <a href="tel:+27637310437" className="font-medium hover:text-emerald-600 transition-colors">+27 63 731 0437</a></p>
+              <p><span className="text-gray-500">WhatsApp:</span> <a href="https://wa.me/27637310437" target="_blank" rel="noopener" className="font-medium hover:text-emerald-600">Join Service</a></p>
               <p><span className="text-gray-500">Email:</span> <a href="mailto:info@elijahchurchofchrist.org" className="font-medium hover:text-emerald-600">info@elijahchurchofchrist.org</a></p>
               <p><span className="text-gray-500">Location:</span> Johannesburg, South Africa</p>
             </div>

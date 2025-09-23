@@ -99,7 +99,7 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
 🙏 Looking forward to partnering with you in God’s work!`;
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    window.open(`https://wa.me/27762073299?text=${encodedMessage}`, '_blank');
+  window.open(`https://wa.me/27637310437?text=${encodedMessage}`, '_blank');
   };
 
   return (
@@ -344,7 +344,7 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
                     <input
                       type="tel"
                       required
-                      placeholder="+27 76 207 3299"
+                      placeholder="+27 63 731 0437"
                       value={donorInfo.phone}
                       onChange={(e) => setDonorInfo(prev => ({ ...prev, phone: e.target.value }))}
                         className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"

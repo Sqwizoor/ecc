@@ -6,7 +6,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Instagram, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, Instagram, Phone, MessageCircle, Music2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -94,7 +94,20 @@ export default function Navigation() {
 								</div>
 							</motion.a>
 							<motion.a
-								href="tel:+27762073299"
+								href="https://www.tiktok.com/@elijahchurches?_t=ZS-8zwdfAY5aKd&_r=1"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="group"
+								whileHover={{ scale: 1.1 }}
+								whileTap={{ scale: 0.95 }}
+								aria-label="TikTok"
+							>
+								<div className="w-10 h-10 rounded-full bg-black flex items-center justify-center shadow">
+									<Music2 className="w-5 h-5 text-white" />
+								</div>
+							</motion.a>
+							<motion.a
+								href="tel:+27637310437"
 								className="group"
 								whileHover={{ scale: 1.1 }}
 								whileTap={{ scale: 0.95 }}
@@ -110,7 +123,7 @@ export default function Navigation() {
 															className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
 							>
 								<a
-									href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20join%20your%20service."
+									href="https://wa.me/27637310437?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20join%20your%20service."
 									target="_blank"
 									rel="noopener noreferrer"
 									className="flex items-center"
@@ -125,7 +138,7 @@ export default function Navigation() {
 					{/* Mobile Actions */}
 					<div className="md:hidden flex items-center space-x-3">
 						<motion.a
-							href="tel:+27762073299"
+							href="tel:+27637310437"
 							className="group"
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.95 }}
@@ -195,7 +208,16 @@ export default function Navigation() {
 										<Instagram className="w-6 h-6 text-white" />
 									</a>
 									<a
-										href="tel:+27762073299"
+										href="https://www.tiktok.com/@elijahchurches?_t=ZS-8zwdfAY5aKd&_r=1"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="w-12 h-12 rounded-full bg-black flex items-center justify-center shadow"
+										aria-label="TikTok"
+									>
+										<Music2 className="w-6 h-6 text-white" />
+									</a>
+									<a
+										href="tel:+27637310437"
 																			className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow"
 									>
 										<Phone className="w-6 h-6 text-white" />
@@ -207,7 +229,7 @@ export default function Navigation() {
 									onClick={() => setIsOpen(false)}
 								>
 									<a
-										href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20join%20your%20service."
+										href="https://wa.me/27637310437?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20join%20your%20service."
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex items-center"

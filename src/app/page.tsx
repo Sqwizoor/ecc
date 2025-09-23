@@ -22,6 +22,10 @@ import {
   Handshake,
   Activity,
   ChevronDown,
+  CreditCard,
+  PhoneCall,
+  Banknote,
+  Music2,
 } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import {
@@ -592,6 +596,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      
       {/* Services Preview (styled like Services page, with images) */}
       <section className="section-padding skincare-gradient">
         <div className="max-w-7xl mx-auto">
@@ -1401,14 +1406,6 @@ export default function HomePage() {
                     {c.title}
                   </h3>
                   <p className="text-gray-600 mb-4">{c.text}</p>
-                  <Link href="/contact">
-                    <Button
-                      variant="outline"
-                      className="border-emerald-300 text-emerald-700 hover:bg-emerald-50"
-                    >
-                      Learn More
-                    </Button>
-                  </Link>
                 </Card>
               </motion.div>
             ))}
@@ -1416,9 +1413,104 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonies (final section at bottom) */}
-      <section className="section-padding bg-white">
-        <div className="max-w-6xl mx-auto">
+      
+
+      {/* Charity & Outreach */}
+      <section className="section-padding bg-gradient-to-br from-emerald-50 via-white to-teal-50" id="charity">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center mb-12"
+          >
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Charity & Outreach
+            </motion.h2>
+            <motion.p variants={itemFadeUp} className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Your generosity helps us feed, clothe and care for those in need. Here are
+              glimpses from our recent community outreaches.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {([
+              { src: "/helping.jpeg", alt: "Serving meals to the poor" },
+              { src: "/helping2.jpeg", alt: "Distributing food parcels" },
+              { src: "/helping3.jpeg", alt: "Community outreach team" },
+              { src: "/helping4.jpeg", alt: "Clothing donations and care" },
+              { src: "/helping6.jpeg", alt: "Outreach to families in need" },
+              { src: "/helping7.jpeg", alt: "Love in action in our city" },
+              { src: "/helping8.jpeg", alt: "Feeding program" },
+            ] as { src: string; alt: string }[]).map((img, i) => (
+              <motion.div key={img.src} variants={itemFadeUp} whileHover={{ y: -6 }}>
+                <Card variant="glass" elevation="sm" accent="emerald" interactive className="overflow-hidden rounded-2xl">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 33vw"
+                      className="object-cover"
+                      priority={i < 3}
+                    />
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+  {/* Donate CTA */}
+      <section className="section-padding bg-white" id="donate">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            className="space-y-6"
+          >
+            <motion.h2 variants={itemFadeUp} className="text-4xl md:text-5xl font-bold text-gray-900">
+              Partner With Us
+            </motion.h2>
+            <motion.p variants={itemFadeUp} className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Every gift advances the mission: feeding programs, street outreach, healing ministry
+              and leadership development. Thank you for your generosity.
+            </motion.p>
+            <motion.div variants={itemFadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="https://wa.me/27637310437?text=I%20would%20like%20to%20donate%20to%20Elijah%20Church%20of%20Christ"
+                target="_blank"
+              >
+                <Button size="lg" className="rounded-full px-8 py-6 bg-emerald-600 hover:bg-emerald-500 text-white">
+                  Donate via WhatsApp
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline" size="lg" className="rounded-full px-8 py-6">
+                  Contact for Banking Details
+                </Button>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How Can I Donate? */}
+      <section className="section-padding bg-gradient-to-br from-emerald-50 via-white to-teal-50" id="how-to-donate">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             variants={containerStagger}
             initial="hidden"
@@ -1428,223 +1520,92 @@ export default function HomePage() {
           >
             <motion.div
               variants={itemFadeUp}
-              className="inline-flex items-center space-x-3 mb-8"
+              className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4"
             >
-              <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm font-medium">Praise Reports</span>
-              </div>
+              Ways to Give
             </motion.div>
             <motion.h2
               variants={itemFadeUp}
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
             >
-              Testimonies
+              How can I donate?
             </motion.h2>
-            <motion.p variants={itemFadeUp} className="text-lg text-gray-600">
-              Stories of healing and transformation at Elijah Church of Christ
+            <motion.p variants={itemFadeUp} className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Choose a way that works for you—every gift fuels outreach, feeding, healing ministry and leadership development.
             </motion.p>
           </motion.div>
+
           <motion.div
             variants={containerStagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-60px" }}
-            className="space-y-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {[
-              {
-                name: "Thandi M.",
-                avatar: "TM",
-                rating: 5,
-                date: "2 weeks ago",
-                review:
-                  "I came heavy‑hearted and left with peace. The prayer team stood with me, and I witnessed God’s hand restoring my family.",
-                helpful: 9,
-              },
-              {
-                name: "James R.",
-                avatar: "JR",
-                rating: 5,
-                date: "1 month ago",
-                review:
-                  "Powerful worship and practical teaching. I felt welcomed from the moment I walked in—this church has become my family.",
-                helpful: 6,
-              },
-              {
-                name: "Ayesha P.",
-                avatar: "AP",
-                rating: 5,
-                date: "3 weeks ago",
-                review:
-                  "My child loves the Children’s Church and looks forward to Sundays. We’ve seen real growth in our home since coming to ECC.",
-                helpful: 11,
-              },
-            ].map((review, index) => (
-              <motion.div
-                key={review.name}
-                variants={itemFadeUp}
-                className="max-w-4xl mx-auto"
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Card
-                  variant="solid"
-                  elevation="sm"
-                  accent="emerald"
-                  interactive
-                  className="p-6 rounded-2xl"
+            <motion.div variants={itemFadeUp} whileHover={{ y: -6 }}>
+              <Card variant="glass" elevation="sm" accent="emerald" interactive className="p-6 h-full rounded-2xl">
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+                  <PhoneCall className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">WhatsApp Giving</h3>
+                <p className="text-gray-600 mb-4">Start a chat to pledge, arrange pickup, or request details.</p>
+                <Link
+                  href="https://wa.me/27637310437?text=I%20would%20like%20to%20donate%20to%20Elijah%20Church%20of%20Christ"
+                  target="_blank"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center space-x-3">
-                      <motion.div
-                        className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-medium text-sm"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {review.avatar}
-                      </motion.div>
-                      <div>
-                        <motion.h4
-                          className="font-medium text-gray-900 hover:text-blue-600 cursor-pointer transition-colors duration-200"
-                          whileHover={{ x: 2 }}
-                        >
-                          {review.name}
-                        </motion.h4>
-                        <div className="flex items-center space-x-2 text-sm text-gray-500">
-                          <span>{review.date}</span>
-                          <span>•</span>
-                          <div className="flex items-center space-x-1">
-                            <svg
-                              className="w-4 h-4"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                            >
-                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                            </svg>
-                            <span>Johannesburg</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <motion.button
-                      className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <svg
-                        className="w-5 h-5 text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
-                      </svg>
-                    </motion.button>
-                  </div>
-                  <motion.div
-                    className="flex items-center space-x-1 mb-3"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
-                  >
-                    {[...Array(review.rating)].map((_, i) => (
-                      <motion.svg
-                        key={i}
-                        className="w-4 h-4 text-yellow-400 fill-current"
-                        viewBox="0 0 20 20"
-                        initial={{ scale: 0, rotate: -180 }}
-                        whileInView={{ scale: 1, rotate: 0 }}
-                        transition={{
-                          delay: index * 0.1 + i * 0.05 + 0.4,
-                          type: "spring",
-                          stiffness: 200,
-                        }}
-                        whileHover={{ scale: 1.2 }}
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </motion.svg>
-                    ))}
-                  </motion.div>
-                  <motion.p
-                    className="text-gray-700 leading-relaxed mb-4 text-sm"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: index * 0.1 + 0.6 }}
-                  >
-                    {review.review}
-                  </motion.p>
-                  <motion.div
-                    className="flex items-center justify-between pt-3 border-t border-gray-100"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.8 }}
-                  >
-                    <div className="flex items-center space-x-4">
-                      <motion.button
-                        className="flex items-center space-x-2 text-gray-500 hover:text-blue-600 transition-colors duration-200 text-sm"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L9 6v11.5m0 0L7 20"
-                          />
-                        </svg>
-                        <span>Helpful ({review.helpful})</span>
-                      </motion.button>
-                      <motion.button
-                        className="flex items-center space-x-2 text-gray-500 hover:text-blue-600 transition-colors duration-200 text-sm"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
-                          />
-                        </svg>
-                        <span>Share</span>
-                      </motion.button>
-                    </div>
-                    <div className="flex items-center space-x-1 text-xs text-gray-500">
-                      <svg
-                        className="w-3 h-3 text-blue-500"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span>Verified</span>
-                    </div>
-                  </motion.div>
-                </Card>
-              </motion.div>
-            ))}
+                  <Button className="w-full">Donate via WhatsApp</Button>
+                </Link>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={itemFadeUp} whileHover={{ y: -6 }}>
+              <Card variant="glass" elevation="sm" accent="emerald" interactive className="p-6 h-full rounded-2xl">
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+                  <Banknote className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Bank Transfer (EFT)</h3>
+                <p className="text-gray-600 mb-4">Prefer EFT? Request our banking details securely.</p>
+                <Link href="/contact">
+                  <Button variant="outline" className="w-full">Request Banking Details</Button>
+                </Link>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={itemFadeUp} whileHover={{ y: -6 }}>
+              <Card variant="glass" elevation="sm" accent="emerald" interactive className="p-6 h-full rounded-2xl">
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+                  <CreditCard className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">In‑Service Giving</h3>
+                <p className="text-gray-600 mb-4">Give in person during our services.</p>
+                <Link href="/services">
+                  <Button variant="outline" className="w-full">Find a Service</Button>
+                </Link>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={itemFadeUp} whileHover={{ y: -6 }}>
+              <Card variant="glass" elevation="sm" accent="emerald" interactive className="p-6 h-full rounded-2xl">
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+                  <HandHeart className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Sponsor an Outreach</h3>
+                <p className="text-gray-600 mb-4">Fund meals, clothing or a specific community project.</p>
+                <Link href="/contact">
+                  <Button variant="outline" className="w-full">Talk to Us</Button>
+                </Link>
+              </Card>
+            </motion.div>
+          </motion.div>
+
+          <motion.div variants={itemFadeUp} className="mt-8 text-center text-sm text-gray-600">
+            Looking for more info? <Link href="#faq-giving" className="text-emerald-700 underline">Read more in the FAQ</Link>.
           </motion.div>
         </div>
       </section>
 
       {/* FAQ Section (moved near bottom, before CTA) */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
+  <section className="section-padding bg-gradient-to-br from-gray-50 to-white" id="faq">
         <div className="max-w-4xl mx-auto">
           <motion.div
             variants={containerStagger}
@@ -1686,14 +1647,15 @@ export default function HomePage() {
                 a: "Our prayer team is available after every service. You can also request a confidential appointment via our Contact page.",
               },
               {
-                q: "How can I give or partner with the church?",
-                a: "You can give during service, online, or via WhatsApp. We appreciate your partnership in advancing the Gospel.",
+                q: "How can we help the unfortunate people that need food and clothes?",
+                a: "You can donate non‑perishable food, clothing, or funds. Drop off during services, arrange via WhatsApp, or request details on our Contact page. Your support fuels weekly feeding and clothing outreaches.",
               },
             ].map((faq, i) => (
               <Accordion.Item
                 key={faq.q}
                 value={`item-${i}`}
                 className="focus:outline-none"
+                id={/(give or partner|unfortunate people)/i.test(faq.q) ? "faq-giving" : undefined}
               >
                 <Card
                   variant="glass"
@@ -1721,6 +1683,40 @@ export default function HomePage() {
               </Accordion.Item>
             ))}
           </Accordion.Root>
+        </div>
+      </section>
+
+      {/* TikTok Follow */}
+      <section className="section-padding bg-white" id="tiktok">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-black text-white">
+              <Music2 className="w-4 h-4" />
+              <span className="text-sm font-medium">Follow us on TikTok</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Be part of our journey</h2>
+            <p className="text-lg text-gray-600">
+              Watch highlights, testimonies, and outreach moments. Join the ECC family online.
+            </p>
+            <div className="flex justify-center">
+              <Link
+                href="https://www.tiktok.com/@elijahchurches?_t=ZS-8zwdfAY5aKd&_r=1"
+                target="_blank"
+                className="group"
+              >
+                <Button className="rounded-full px-8 py-6 bg-black hover:bg-black/90 text-white flex items-center">
+                  <Music2 className="w-5 h-5 mr-2" />
+                  @elijahchurches on TikTok
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -1786,7 +1782,7 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
-                href="https://wa.me/27762073299?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20plan%20a%20visit%20and%20request%20prayer."
+                href="https://wa.me/27637310437?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20plan%20a%20visit%20and%20request%20prayer."
                 target="_blank"
               >
                 <motion.div

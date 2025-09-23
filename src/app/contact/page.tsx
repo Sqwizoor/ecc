@@ -28,7 +28,7 @@ const contactMethods = [
     icon: Phone,
     title: "Call Us",
     description: "Speak directly with our church office for immediate assistance",
-    contact: "+27 76 207 3299",
+  contact: "+27 63 731 0437",
     availability: "Mon-Fri: 8AM-6PM, Sat: 9AM-4PM"
   },
   {
@@ -42,7 +42,7 @@ const contactMethods = [
     icon: MessageSquare,
     title: "WhatsApp",
     description: "Connect with us instantly through WhatsApp for prayer requests",
-    contact: "+27 76 207 3299",
+    contact: "+27 63 731 0437",
     availability: "Available 24/7"
   },
   {
@@ -546,7 +546,7 @@ export default function ContactPage() {
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span>+27 76 207 3299</span>
+                  <span>+27 63 731 0437</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
