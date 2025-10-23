@@ -17,7 +17,6 @@ import {
   Calendar,
   ArrowRight,
   CheckCircle,
-  Cross,
   HandHeart
 } from "lucide-react";
 import { useState } from "react";

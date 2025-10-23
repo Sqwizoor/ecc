@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState, useRef, useEffect } from "react";
+import React, { useMemo, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Image from "next/image";
@@ -191,23 +191,23 @@ export default function CharityPage() {
               <div className="relative pl-6 border-l-4 border-emerald-600 space-y-4">
                 <Quote className="absolute -left-2 top-0 w-8 h-8 text-emerald-600 bg-white" />
                 <p className="text-lg text-gray-700 italic leading-relaxed">
-                  "At a young age, I once lived on the streets in Johannesburg. I experienced firsthand the cold nights, 
+                  &ldquo;At a young age, I once lived on the streets in Johannesburg. I experienced firsthand the cold nights, 
                   the hunger, the loneliness, and the feeling of being invisible to the world passing by. Those difficult 
-                  days shaped who I am today and ignited a fire within me that has never dimmed."
+                  days shaped who I am today and ignited a fire within me that has never dimmed.&rdquo;
                 </p>
               </div>
 
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  My time on the streets wasn't just a chapter in my past—it became my calling. God transformed my pain 
+                  My time on the streets wasn&apos;t just a chapter in my past—it became my calling. God transformed my pain 
                   into purpose, my struggle into strength. What was meant to break me became the very foundation that 
                   would allow me to reach others who are still trapped in that darkness.
                 </p>
                 <p>
-                  I returned to those same streets, not as someone broken, but as someone restored by God's grace. I came 
+                  I returned to those same streets, not as someone broken, but as someone restored by God&apos;s grace. I came 
                   back to change lives, to be the helping hand I once desperately needed, to show love to those society 
-                  has forgotten. Every person we feed, every blanket we distribute, every prayer we offer—it's personal 
-                  to me because I've been there.
+                  has forgotten. Every person we feed, every blanket we distribute, every prayer we offer—it&apos;s personal 
+                  to me because I&apos;ve been there.
                 </p>
                 <p className="font-medium text-gray-900">
                   I believe that humility and humanity speak to God more powerfully than anything else. As the scripture 
@@ -215,12 +215,12 @@ export default function CharityPage() {
                 </p>
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-xl border-l-4 border-emerald-600">
                   <p className="text-lg font-semibold text-gray-900 italic">
-                    "Humble yourselves, therefore, under God's mighty hand, that he may lift you up in due time."
+                    &ldquo;Humble yourselves, therefore, under God&apos;s mighty hand, that he may lift you up in due time.&rdquo;
                   </p>
                   <p className="text-sm text-gray-600 mt-2">— 1 Peter 5:6 (NIV)</p>
                 </div>
                 <p>
-                  This ministry isn't just about charity—it's about dignity, hope, and restoration. It's about seeing 
+                  This ministry isn&apos;t just about charity—it&apos;s about dignity, hope, and restoration. It&apos;s about seeing 
                   Christ in every face we meet on the streets. When we serve the least of these, we serve Him. Join us 
                   in this sacred work of transforming lives, one act of kindness at a time.
                 </p>
@@ -296,7 +296,7 @@ export default function CharityPage() {
             </motion.h2>
             <motion.p variants={itemFadeUp} className="text-gray-300 max-w-2xl mx-auto text-lg">
               Watch how your donations transform lives on the streets of South Africa. Every contribution makes a real, 
-              tangible difference in someone's day—and their future.
+              tangible difference in someone&apos;s day—and their future.
             </motion.p>
           </motion.div>
 
@@ -411,7 +411,7 @@ export default function CharityPage() {
               Make a Difference Today
             </motion.h2>
             <motion.p variants={itemFadeUp} className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-              Your donation directly impacts lives on the streets of South Africa. Whether it's money, food, clothing, or blankets—
+              Your donation directly impacts lives on the streets of South Africa. Whether it&apos;s money, food, clothing, or blankets—
               every contribution brings hope, dignity, and the love of Christ to those who need it most.
             </motion.p>
           </motion.div>
@@ -425,7 +425,7 @@ export default function CharityPage() {
             <Card className="border-0 shadow-2xl rounded-3xl overflow-hidden">
               <CardHeader className="bg-gradient-to-br from-emerald-600 to-teal-600 text-white p-8">
                 <CardTitle className="text-3xl font-bold">Donation Details</CardTitle>
-                <p className="text-emerald-100 mt-2">Fill in your details and we'll connect with you via WhatsApp to arrange your donation</p>
+                <p className="text-emerald-100 mt-2">Fill in your details and we&apos;ll connect with you via WhatsApp to arrange your donation</p>
               </CardHeader>
               <CardContent className="p-8">
                 <form onSubmit={submitDonation} className="space-y-6">
@@ -503,7 +503,7 @@ export default function CharityPage() {
                         placeholder="e.g., 5 blankets, 10kg mealie meal, winter jackets" 
                         className="border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 h-12" 
                       />
-                      <p className="text-sm text-gray-500 mt-2">Please describe what you'd like to donate</p>
+                      <p className="text-sm text-gray-500 mt-2">Please describe what you&apos;d like to donate</p>
                     </div>
                   )}
 
@@ -556,8 +556,8 @@ export default function CharityPage() {
 
                   <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mt-6">
                     <p className="text-sm text-emerald-800">
-                      <strong>How it works:</strong> When you click "Donate via WhatsApp", a chat will open with our team at +27 63 731 0437. 
-                      We'll confirm your donation details and guide you through the next steps. All donations go directly to helping those in need.
+                      <strong>How it works:</strong> When you click &ldquo;Donate via WhatsApp&rdquo;, a chat will open with our team at +27 63 731 0437. 
+                      We&apos;ll confirm your donation details and guide you through the next steps. All donations go directly to helping those in need.
                     </p>
                   </div>
                 </form>
@@ -604,7 +604,7 @@ export default function CharityPage() {
                 color: "from-emerald-50 to-emerald-100",
                 borderColor: "border-emerald-200"
               },
-            ].map((opt, i) => {
+            ].map((opt) => {
               const Icon = opt.icon;
               return (
                 <motion.div 
@@ -693,8 +693,8 @@ export default function CharityPage() {
             </p>
             <div className="pt-4">
               <p className="text-2xl font-semibold italic text-white">
-                "For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, 
-                I was a stranger and you invited me in."
+                &ldquo;For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, 
+                I was a stranger and you invited me in.&rdquo;
               </p>
               <p className="text-emerald-200 mt-2">— Matthew 25:35 (NIV)</p>
             </div>
