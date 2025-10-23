@@ -14,7 +14,7 @@ const containerStagger: Variants = {
       staggerChildren: 0.12,
       delayChildren: 0.1,
     },
-  },
+  }, 
 };
 
 const itemFadeUp: Variants = {
