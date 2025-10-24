@@ -260,7 +260,7 @@ export default function CharityPage() {
             <motion.div variants={itemFadeUp} className="space-y-6">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image 
-                  src="/our-pastor.jpeg" 
+                  src="/pastor-new5.jpeg" 
                   alt="Our Pastor - From the streets to servant leadership" 
                   width={600} 
                   height={700}

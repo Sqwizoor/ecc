@@ -487,10 +487,10 @@ export default function HomePage() {
         {/* Background slideshow */}
         <Slideshow
           images={[
-            "/poolpit.jpeg",
-            "/croud2.jpeg",
-            "/board.jpeg",
-            "/helping4.jpeg",
+            "/pastor-new.jpeg",
+            "/pastor-new2.jpeg",
+            "/pastor-new3.jpeg",
+            "/pastor-new4.jpeg",
           ]}
         />
         {/* Overlay */}
