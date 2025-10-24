@@ -277,6 +277,110 @@ export default function CharityPage() {
         </div>
       </section>
 
+      {/* Donation Form - New Design */}
+      <section id="donate" className="py-24 relative overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/charity-work.jpeg')" }}
+        >
+          <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-sm"></div>
+        </div>
+
+        <div className="max-w-3xl mx-auto px-4 relative z-10">
+          <motion.div
+            variants={itemFadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="bg-gray-800/95 backdrop-blur-md rounded-3xl p-8 shadow-2xl"
+          >
+            {/* Header */}
+            <div className="text-center mb-8 space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+                Give a donation to help share the hope of Christ and love people all around the world!
+              </h2>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                When we all come together, we can create lasting change and inspire hope in the lives of individuals, families and entire communities. Every contribution, no matter the size, makes a difference by providing much-needed humanitarian relief. Thank you for joining us today!
+              </p>
+              <p className="text-gray-300 text-sm">
+                To make an tax deductible donation, please call or contact or South Africa office at{' '}
+                <a href="tel:0637310437" className="text-blue-400 hover:text-blue-300 underline">
+                  Tel: 021-7056547
+                </a>
+                {' '}or email{' '}
+                <a href="mailto:elijahcoc@gmail.com" className="text-blue-400 hover:text-blue-300 underline">
+                  elijahcoc@gmail.com
+                </a>
+                .
+              </p>
+            </div>
+
+            {/* Donation Amount */}
+            <div className="space-y-4 mb-6">
+              <label className="block text-white font-bold text-lg">
+                Donation Amount
+              </label>
+
+              {/* Preset Amounts */}
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { amount: 100, label: "R100" },
+                  { amount: 250, label: "R250" },
+                  { amount: 500, label: "R500" },
+                  { amount: 1000, label: "R1 000" }
+                ].map((preset) => (
+                  <button
+                    key={preset.amount}
+                    onClick={() => setForm(f => ({ ...f, amount: String(preset.amount), donationType: "money" }))}
+                    className={`py-4 rounded-xl font-semibold text-lg transition-all ${
+                      form.amount === String(preset.amount)
+                        ? 'bg-blue-600 text-white shadow-lg scale-105'
+                        : 'bg-gray-700/50 text-gray-300 border-2 border-gray-600 hover:border-blue-500 hover:bg-gray-700'
+                    }`}
+                  >
+                    {preset.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Custom Amount Input */}
+              <div className="relative">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-lg">
+                  R
+                </span>
+                <input
+                  type="number"
+                  name="amount"
+                  value={form.amount}
+                  onChange={onChange}
+                  placeholder="Enter Amount"
+                  className="w-full bg-gray-700/50 border-2 border-gray-600 text-white placeholder-gray-400 rounded-xl pl-10 pr-4 py-4 text-lg font-semibold focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50"
+                />
+              </div>
+            </div>
+
+            {/* Continue Button */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                if (form.amount && parseFloat(form.amount) > 0) {
+                  // Open WhatsApp with donation details
+                  const message = encodeURIComponent(
+                    `Hi Elijah Church of Christ, I want to donate R${form.amount} to help share the hope of Christ and love people all around the world!`
+                  );
+                  window.open(`https://wa.me/27637310437?text=${message}`, '_blank');
+                }
+              }}
+              disabled={!form.amount || parseFloat(form.amount) <= 0}
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg hover:shadow-xl disabled:shadow-none"
+            >
+              Continue
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Video Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div className="max-w-7xl mx-auto px-4">
@@ -400,8 +504,8 @@ export default function CharityPage() {
         </div>
       </section>
 
-      {/* Donation Form */}
-      <section id="donate" className="py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+      {/* Original Donation Form Section */}
+      <section className="py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div variants={containerStagger} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} className="text-center mb-12">
             <motion.div variants={itemFadeUp} className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
