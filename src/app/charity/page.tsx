@@ -209,6 +209,23 @@ export default function CharityPage() {
                   has forgotten. Every person we feed, every blanket we distribute, every prayer we offer—it&apos;s personal 
                   to me because I&apos;ve been there.
                 </p>
+
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-600 my-6">
+                  <h3 className="font-bold text-purple-900 text-xl mb-3 flex items-center gap-2">
+                    <Heart className="w-6 h-6 text-purple-600" />
+                    In Loving Memory - A Mother&apos;s Legacy
+                  </h3>
+                  <p className="text-gray-800 italic leading-relaxed">
+                    &ldquo;A mother and hero to many many lives that she touched during her serving in communities. 
+                    May the Almighty God give my mother a peaceful rest and eternal life. It was her dream to see 
+                    every woman, every child get basic needs. The foundation all started together with my mother 
+                    living by one powerful tool—PRAYER. We managed to change lives through donating wheelchairs, 
+                    books, capital to widows to start up small macro businesses from home. If we are going to serve 
+                    God we must be practical and go back to poor communities to serve them and that&apos;s the work of 
+                    the church and God&apos;s servants.&rdquo;
+                  </p>
+                </div>
+
                 <p className="font-medium text-gray-900">
                   I believe that humility and humanity speak to God more powerfully than anything else. As the scripture 
                   teaches us in 1 Peter 5:6:
