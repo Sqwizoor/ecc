@@ -303,17 +303,6 @@ export default function CharityPage() {
               <p className="text-gray-300 text-sm leading-relaxed">
                 When we all come together, we can create lasting change and inspire hope in the lives of individuals, families and entire communities. Every contribution, no matter the size, makes a difference by providing much-needed humanitarian relief. Thank you for joining us today!
               </p>
-              <p className="text-gray-300 text-sm">
-                To make an tax deductible donation, please call or contact or South Africa office at{' '}
-                <a href="tel:0637310437" className="text-blue-400 hover:text-blue-300 underline">
-                  Tel: 021-7056547
-                </a>
-                {' '}or email{' '}
-                <a href="mailto:elijahcoc@gmail.com" className="text-blue-400 hover:text-blue-300 underline">
-                  elijahcoc@gmail.com
-                </a>
-                .
-              </p>
             </div>
 
             {/* Donation Amount */}
@@ -416,6 +405,8 @@ export default function CharityPage() {
               className="w-full h-auto"
               controls
               poster="/charity-work.jpeg"
+              preload="auto"
+              playsInline
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
             >
