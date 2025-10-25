@@ -215,6 +215,21 @@ export default function CharityPage() {
                     <Heart className="w-6 h-6 text-purple-600" />
                     In Loving Memory - A Mother&apos;s Legacy
                   </h3>
+                  
+                  {/* Mother's Image */}
+                  <div className="relative rounded-xl overflow-hidden mb-4 shadow-lg">
+                    <Image 
+                      src="/charity-work2.jpeg" 
+                      alt="Pastor's Mother - A hero to many lives" 
+                      width={600} 
+                      height={400}
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-purple-900/80 to-transparent p-4">
+                      <p className="text-white font-semibold text-sm">A Mother&apos;s Heart of Service</p>
+                    </div>
+                  </div>
+
                   <p className="text-gray-800 italic leading-relaxed">
                     &ldquo;A mother and hero to many many lives that she touched during her serving in communities. 
                     May the Almighty God give my mother a peaceful rest and eternal life. It was her dream to see 
@@ -289,6 +304,104 @@ export default function CharityPage() {
                   <p className="text-xs text-gray-600">Impact Daily</p>
                 </Card>
               </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Our Team Section */}
+      <section className="py-20 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div 
+            variants={containerStagger} 
+            initial="hidden" 
+            whileInView="show" 
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center mb-12"
+          >
+            <motion.div variants={itemFadeUp} className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+              <Users className="w-4 h-4" />
+              <span>Our Dedicated Team</span>
+            </motion.div>
+            <motion.h2 variants={itemFadeUp} className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Meet the Heart of Our Ministry
+            </motion.h2>
+            <motion.p variants={itemFadeUp} className="text-gray-600 max-w-3xl mx-auto text-lg">
+              Faithful servants committed to changing lives and serving our community with love and compassion.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          >
+            {/* Charline Jordaan */}
+            <motion.div variants={itemFadeUp} whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
+              <Card className="overflow-hidden rounded-2xl shadow-xl border-0">
+                <div className="relative h-96 overflow-hidden">
+                  <Image 
+                    src="/church-lady2.jpeg" 
+                    alt="Charline Jordaan - Church Coordinator" 
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={95}
+                    priority
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-2xl font-bold text-white mb-1">Charline Jordaan</h3>
+                    <p className="text-emerald-300 font-medium text-lg">Church Coordinator</p>
+                  </div>
+                </div>
+                <CardContent className="p-6 bg-gradient-to-br from-white to-emerald-50">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Users className="w-5 h-5 text-emerald-600" />
+                    </div>
+                    <p className="text-gray-700 leading-relaxed">
+                      Dedicated to coordinating church activities and ensuring smooth operations, Charline brings 
+                      organization, care, and a servant&apos;s heart to everything she does in ministry.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Church Treasurer */}
+            <motion.div variants={itemFadeUp} whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
+              <Card className="overflow-hidden rounded-2xl shadow-xl border-0">
+                <div className="relative h-96 overflow-hidden">
+                  <Image 
+                    src="/charity-lady.jpeg" 
+                    alt="Church Treasurer and Charity Activities Coordinator" 
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={95}
+                    priority
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-2xl font-bold text-white mb-1">Church Treasurer</h3>
+                    <p className="text-emerald-300 font-medium text-lg">Charity Activities Coordinator</p>
+                  </div>
+                </div>
+                <CardContent className="p-6 bg-gradient-to-br from-white to-emerald-50">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-1">
+                      <HandHeart className="w-5 h-5 text-emerald-600" />
+                    </div>
+                    <p className="text-gray-700 leading-relaxed">
+                      Managing church finances with integrity and coordinating charity activities with compassion, 
+                      ensuring every contribution makes a meaningful impact in our community outreach programs.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </motion.div>
         </div>

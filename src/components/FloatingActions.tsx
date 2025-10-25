@@ -167,36 +167,100 @@ export default function FloatingActions() {
       <motion.button
         aria-label="WhatsApp us"
         onClick={() => setPanelOpen((v) => !v)}
-        className="group relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-2xl hover:shadow-3xl transition-all"
-        whileTap={{ scale: 0.95 }}
-        whileHover={{ scale: 1.05 }}
-        animate={{ 
-          boxShadow: [
-            "0 10px 40px rgba(34, 197, 94, 0.4)",
-            "0 10px 50px rgba(34, 197, 94, 0.6)",
-            "0 10px 40px rgba(34, 197, 94, 0.4)",
-          ]
-        }}
-        transition={{ 
-          boxShadow: { duration: 2, repeat: Infinity }
-        }}
+        className="group relative w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden"
+        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.1 }}
         aria-expanded={panelOpen}
         type="button"
       >
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-green-400 to-green-600 animate-pulse opacity-75" />
-        <div className="relative flex items-center justify-center w-full h-full">
-          <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-        </div>
-        <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 ring-4 ring-white shadow-lg animate-bounce" />
+        {/* Animated gradient background */}
         <motion.div
-          className="absolute inset-0 rounded-full border-2 border-white opacity-0 group-hover:opacity-100"
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-[#25D366] via-[#128C7E] to-[#075E54]"
           animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.5, 0, 0],
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+        
+        {/* Pulsing glow effect */}
+        <motion.div
+          className="absolute inset-0 rounded-full bg-[#25D366]"
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.6, 0, 0.6],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Inner circle with icon */}
+        <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center shadow-inner">
+          <WhatsAppIcon className="w-8 h-8 sm:w-10 sm:h-10 text-white drop-shadow-lg relative z-10" />
+        </div>
+
+        {/* Notification badge with pulse */}
+        <motion.span
+          className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gradient-to-br from-red-500 to-red-600 ring-[3px] ring-white shadow-lg flex items-center justify-center"
+          animate={{
+            scale: [1, 1.2, 1],
           }}
           transition={{
             duration: 1.5,
             repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <span className="w-2 h-2 rounded-full bg-white" />
+        </motion.span>
+
+        {/* Ripple effect on hover */}
+        <motion.div
+          className="absolute inset-0 rounded-full border-4 border-white"
+          initial={{ scale: 1, opacity: 0 }}
+          whileHover={{
+            scale: [1, 1.4],
+            opacity: [0.8, 0],
+          }}
+          transition={{
+            duration: 0.8,
+            repeat: Infinity,
+          }}
+        />
+
+        {/* Continuous ripple animation */}
+        <motion.div
+          className="absolute inset-0 rounded-full border-2 border-[#25D366]"
+          animate={{
+            scale: [1, 1.6],
+            opacity: [0.6, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeOut",
+          }}
+        />
+
+        {/* Shine effect */}
+        <motion.div
+          className="absolute inset-0 rounded-full"
+          style={{
+            background: "linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%)",
+          }}
+          animate={{
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear",
           }}
         />
       </motion.button>
