@@ -5,7 +5,6 @@ import type { Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import type { Metadata } from "next";
 import { 
   Heart,
   Calendar,
@@ -19,16 +18,6 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Partnership | Elijah Church of Christ | Join Our Humanitarian Mission",
-  description: "Partner with us for philanthropic initiatives, community development, and empowerment programs. Together we can make a difference in social welfare.",
-  keywords: "partnership, collaboration, philanthropy, community development, empowerment, social welfare, non-profit partnership",
-  openGraph: {
-    title: "Join Our Partnership | Elijah Church of Christ",
-    description: "Partner with a humanitarian organization dedicated to community empowerment and social welfare",
-  },
-};
 
 const containerStagger: Variants = {
   hidden: { opacity: 0, y: 20 },
