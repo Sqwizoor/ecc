@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Metadata } from "next";
 import {
   Mail,
   Phone,
@@ -19,6 +20,16 @@ import {
   CheckCircle,
   HandHeart
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Elijah Church of Christ | Get Support & Prayer",
+  description: "Contact Elijah Church of Christ for prayer requests, charitable giving, and support. Reach out to our humanitarian organization in Johannesburg.",
+  keywords: "contact church, prayer request, support, charity giving, humanitarian aid, community assistance",
+  openGraph: {
+    title: "Contact Elijah Church of Christ | We're Here to Help",
+    description: "Get in touch for prayer, support, or to learn about our philanthropic initiatives",
+  },
+};
 import { useState } from "react";
 import Link from "next/link";
 

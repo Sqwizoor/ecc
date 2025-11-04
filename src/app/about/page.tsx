@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import type { Metadata } from "next";
 import { 
   Cross, 
   Users, 
@@ -25,7 +26,17 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-// Apostle Elijah’s journey timeline
+export const metadata: Metadata = {
+  title: "About Us | Elijah Church of Christ | Our Mission & Vision",
+  description: "Learn about Apostle Elijah's inspiring journey from homelessness to founding a humanitarian church. Our mission: community development, social welfare, and empowerment.",
+  keywords: "about church, mission, vision, philanthropy, humanitarian, community development, empowerment, social welfare, non-profit",
+  openGraph: {
+    title: "About Elijah Church of Christ | Inspiring Stories of Transformation",
+    description: "From streets to service - our story of faith, healing, and community empowerment",
+  },
+};
+
+// Apostle Elijah's journey timeline
 const milestones = [
   {
     year: "Early Life",

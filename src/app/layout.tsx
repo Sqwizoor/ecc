@@ -29,8 +29,38 @@ const exo2 = Exo_2({
 });
 
 export const metadata: Metadata = {
-  title: "Elijah Church of Christ | Changing Lives Through Faith",
-  description: "Elijah Church of Christ – founded by Apostle Elijah. Healing ministry, street outreach, leadership development. Join us: +27 63 731 0437",
+  title: "Elijah Church of Christ | Changing Lives Through Faith & Philanthropy",
+  description: "Elijah Church of Christ – faith-based philanthropy & humanitarian organization. Healing ministry, street outreach, community development, and leadership development in Johannesburg. Contact: +27 63 731 0437",
+  keywords: "philanthropy, humanitarian, non-profit, community development, social welfare, empowerment, charity, support, aid, assistance, church, healing ministry, street outreach, Johannesburg",
+  authors: [{ name: "Elijah Church of Christ" }],
+  openGraph: {
+    type: "website",
+    locale: "en_ZA",
+    url: "https://elijahchurchofchrist.org",
+    siteName: "Elijah Church of Christ",
+    title: "Elijah Church of Christ | Changing Lives Through Faith & Philanthropy",
+    description: "Join our humanitarian community development initiatives. Healing, empowerment, and charitable support for those in need.",
+    images: [
+      {
+        url: "https://elijahchurchofchrist.org/loggi.png",
+        width: 1200,
+        height: 630,
+        alt: "Elijah Church of Christ",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elijah Church of Christ | Philanthropy & Community Development",
+    description: "Changing lives through faith, humanitarian aid, and social welfare initiatives",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 export default function RootLayout({

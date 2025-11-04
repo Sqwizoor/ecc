@@ -8,6 +8,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { HandHeart, Heart, Users, Gift, PhoneCall, Banknote, Package, Sparkles, BookOpen, Cross, Play, MapPin, Target, TrendingUp, Quote } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Charity & Outreach | Elijah Church of Christ | Philanthropy & Humanitarian Aid",
+  description: "Join our non-profit charity and humanitarian organization. Support community development, social welfare programs, and empowerment initiatives for those in need in Johannesburg.",
+  keywords: "charity, philanthropy, humanitarian, non-profit, community development, social welfare, empowerment, aid, assistance, outreach, Johannesburg",
+  openGraph: {
+    title: "Charity & Outreach | Philanthropy & Humanitarian Support",
+    description: "Making a difference through charitable giving and community empowerment",
+  },
+};
 
 const containerStagger: Variants = {
   hidden: { opacity: 0, y: 20 },
