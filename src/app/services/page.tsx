@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import type { Metadata } from "next";
 import { 
   Cross, 
   Heart, 
@@ -30,16 +29,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "Ministry Services | Elijah Church of Christ | Healing & Community Support",
-  description: "Explore our humanitarian services including street outreach, healing ministry, community development, and empowerment programs. Join our charitable mission.",
-  keywords: "ministry services, healing ministry, street outreach, empowerment, community support, humanitarian aid, social welfare",
-  openGraph: {
-    title: "Our Ministry Services | Humanitarian & Healing Programs",
-    description: "Changing lives through prayer, support, and community empowerment",
-  },
-};
 
 // Church Ministries
 const ministries = [
