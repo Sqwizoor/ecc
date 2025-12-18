@@ -24,15 +24,14 @@ const itemFadeUp: Variants = {
 };
 
 const gallery = [
-  { src: "/charity-work.jpeg", alt: "Charity work in action" },
-  { src: "/charity-work2.jpeg", alt: "Feeding the hungry in Johannesburg" },
-  { src: "/charity-work3.jpeg", alt: "Serving meals to those in need" },
-  { src: "/charity-work4.jpeg", alt: "Community outreach and compassion" },
-  { src: "/charity-work5.jpeg", alt: "Helping people living on the streets" },
-  { src: "/charity-work6.jpeg", alt: "Distributing food and care" },
-  { src: "/charity-work7.jpeg", alt: "Love in action - charity ministry" },
-  { src: "/charity-work8.jpeg", alt: "Reaching the vulnerable with hope" },
-  { src: "/charity-work9.jpeg", alt: "Church charity work - changing lives" },
+  { src: "/newchurch9.jpeg", alt: "New Church - outreach event" },
+  { src: "/newchurch8.jpeg", alt: "New Church - community meal" },
+  { src: "/newchurch7.jpeg", alt: "New Church - volunteers serving" },
+  { src: "/newchurch6.jpeg", alt: "New Church - distribution and care" },
+  { src: "/newchurch5.jpeg", alt: "New Church - winter drive" },
+  { src: "/newchurch4.jpeg", alt: "New Church - community gathering" },
+  { src: "/newchurch3.jpeg", alt: "New Church - prayer and outreach" },
+  { src: "/newchurch2.jpeg", alt: "New Church - serving the vulnerable" },
 ];
 
 type DonationType = "money" | "food" | "clothes" | "blankets" | "other";
@@ -122,7 +121,7 @@ export default function CharityPage() {
     <div className="pt-20">
       {/* Hero */}
       <section className="relative py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/charity-work.jpeg')] bg-cover bg-center opacity-5"></div>
+        <div className="absolute inset-0 bg-[url('/newchurch9.jpeg')] bg-cover bg-center opacity-6"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="space-y-8">
             <div className="inline-flex items-center space-x-2 px-5 py-2 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">
@@ -219,11 +218,12 @@ export default function CharityPage() {
                   {/* Mother's Image */}
                   <div className="relative rounded-xl overflow-hidden mb-4 shadow-lg">
                     <Image 
-                      src="/charity-work2.jpeg" 
-                      alt="Pastor's Mother - A hero to many lives" 
+                      src="/newchurch6.jpeg" 
+                      alt="A mother's legacy of service" 
                       width={600} 
                       height={400}
                       className="w-full h-auto object-cover"
+                      priority
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-purple-900/80 to-transparent p-4">
                       <p className="text-white font-semibold text-sm">A Mother&apos;s Heart of Service</p>
@@ -343,8 +343,8 @@ export default function CharityPage() {
               <Card className="overflow-hidden rounded-2xl shadow-xl border-0">
                 <div className="relative h-96 overflow-hidden">
                   <Image 
-                    src="/church-lady2.jpeg" 
-                    alt="Charline Jordaan - Church Coordinator" 
+                    src="/newchurch4.jpeg" 
+                    alt="Charline Jordaan - Church Coordinator (newchurch photo)" 
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     quality={95}
@@ -376,8 +376,8 @@ export default function CharityPage() {
               <Card className="overflow-hidden rounded-2xl shadow-xl border-0">
                 <div className="relative h-96 overflow-hidden">
                   <Image 
-                    src="/charity-lady.jpeg" 
-                    alt="Church Treasurer and Charity Activities Coordinator" 
+                    src="/newchurch3.jpeg" 
+                    alt="Church Treasurer and Charity Activities Coordinator (newchurch photo)" 
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     quality={95}
@@ -412,7 +412,7 @@ export default function CharityPage() {
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/charity-work.jpeg')" }}
+          style={{ backgroundImage: "url('/newchurch8.jpeg')" }}
         >
           <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-sm"></div>
         </div>
@@ -534,7 +534,7 @@ export default function CharityPage() {
               ref={videoRef}
               className="w-full h-auto"
               controls
-              poster="/charity-work.jpeg"
+              poster="/newchurch7.jpeg"
               preload="auto"
               playsInline
               onPlay={() => setIsPlaying(true)}
