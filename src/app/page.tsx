@@ -306,6 +306,18 @@ type MediaItem =
   | { type: "video"; src: string; alt: string; poster?: string };
 
 const resultsMedia: MediaItem[] = [
+  // Added New Church photos
+  { type: "image", src: "/new-church.jpeg", alt: "New Church - exterior" },
+  { type: "image", src: "/newchurch2.jpeg", alt: "New Church - community portrait" },
+  { type: "image", src: "/newchurch3.jpeg", alt: "New Church - prayer and outreach" },
+  { type: "image", src: "/newchurch4.jpeg", alt: "New Church - community gathering" },
+  { type: "image", src: "/newchurch5.jpeg", alt: "New Church - winter drive" },
+  { type: "image", src: "/newchurch6.jpeg", alt: "New Church - distribution and care" },
+  { type: "image", src: "/newchurch7.jpeg", alt: "New Church - volunteers serving" },
+  { type: "image", src: "/newchurch8.jpeg", alt: "New Church - community meal" },
+  { type: "image", src: "/newchurch9.jpeg", alt: "New Church - outreach event" },
+
+  // Existing gallery items
   { type: "image", src: "/poolpit.jpeg", alt: "Worship at the pulpit" },
   { type: "image", src: "/croud2.jpeg", alt: "Congregation in praise" },
   { type: "image", src: "/croud3.jpeg", alt: "Spirit-filled worship service" },
