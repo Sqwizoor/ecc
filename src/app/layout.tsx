@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import FloatingActions from "@/components/FloatingActions";
+import PrayerLineBanner from "@/components/PrayerLineBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,6 +64,7 @@ export const metadata: Metadata = {
   },
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,6 +79,7 @@ export default function RootLayout({
             {children}
           </PageTransition>
         </main>
+        <PrayerLineBanner />
   <FloatingActions />
         <footer className="border-t border-gray-200 bg-white">
           <div className="max-w-7xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-4">
@@ -99,8 +102,9 @@ export default function RootLayout({
             <div className="text-sm text-gray-700 space-y-2">
               <h4 className="font-semibold text-gray-900 mb-3 tracking-wide">Contact</h4>
               <p><span className="text-gray-500">Phone:</span> <a href="tel:+27637310437" className="font-medium hover:text-emerald-600 transition-colors">+27 63 731 0437</a></p>
+              <p><span className="text-gray-500">24/7 Prayer Line:</span> <a href="tel:0718499605" className="font-medium hover:text-emerald-600 transition-colors">071 849 9605</a></p>
               <p><span className="text-gray-500">WhatsApp:</span> <a href="https://wa.me/27637310437" target="_blank" rel="noopener" className="font-medium hover:text-emerald-600">Join Service</a></p>
-              <p><span className="text-gray-500">Email:</span> <a href="mailto:info@elijahchurchofchrist.org" className="font-medium hover:text-emerald-600">info@elijahchurchofchrist.org</a></p>
+              <p><span className="text-gray-500">Email:</span> <a href="mailto:info@elijahchurch.org" className="font-medium hover:text-emerald-600">info@elijahchurch.org</a></p>
               <p><span className="text-gray-500">Location:</span> Johannesburg, South Africa</p>
             </div>
             <div className="text-sm text-gray-700 space-y-2">

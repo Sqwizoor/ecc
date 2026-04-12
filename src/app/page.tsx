@@ -1794,7 +1794,7 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
-                href="https://wa.me/27637310437?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20plan%20a%20visit%20and%20request%20prayer."
+                href="https://wa.me/27718499605?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%27d%20like%20to%20plan%20a%20visit%20and%20request%20prayer."
                 target="_blank"
               >
                 <motion.div

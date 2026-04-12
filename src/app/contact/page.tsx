@@ -34,14 +34,14 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
   description: "Send us a message and we’ll respond within 24 hours",
-    contact: "info@elijahchurchofchrist.org",
+    contact: "info@elijahchurch.org",
     availability: "Response within 24 hours"
   },
   {
     icon: MessageSquare,
     title: "WhatsApp",
     description: "Connect with us instantly through WhatsApp for prayer requests",
-    contact: "+27 63 731 0437",
+    contact: "071 849 9605",
     availability: "Available 24/7"
   },
   {
@@ -58,25 +58,25 @@ const ministries = [
     name: "Prayer Ministry",
   description: "Need prayer? We’re here to pray with you and for you.",
     icon: Heart,
-    contact: "prayer@elijahchurchofchrist.org"
+    contact: "071 849 9605"
   },
   {
     name: "Pastoral Care",
     description: "Connect with our pastors for spiritual guidance and counseling",
     icon: Heart,
-    contact: "pastor@elijahchurchofchrist.org"
+    contact: "info@elijahchurch.org"
   },
   {
     name: "Outreach Ministry",
     description: "Join our street ministry and community service programs",
     icon: Users,
-    contact: "outreach@elijahchurchofchrist.org"
+    contact: "info@elijahchurch.org"
   },
   {
     name: "Youth Ministry",
     description: "Youth programs, leadership development, and mentorship",
     icon: Church,
-    contact: "youth@elijahchurchofchrist.org"
+    contact: "info@elijahchurch.org"
   }
 ];
 
@@ -545,11 +545,11 @@ export default function ContactPage() {
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span>+27 63 731 0437</span>
+                  <span>+27 63 731 0437 | 071 849 9605 (Prayer Line)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>info@elijahchurchofchrist.org</span>
+                  <span>info@elijahchurch.org</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
