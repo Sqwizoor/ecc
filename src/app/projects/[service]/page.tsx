@@ -12,6 +12,7 @@ const serviceData: Record<string, {
   description: string;
   longDescription: string;
   image: string;
+  detailImage: string;
   features: string[];
 }> = {
   cleaning: {
@@ -20,6 +21,7 @@ const serviceData: Record<string, {
     description: "Top-tier cleaning solutions tailored for commercial, industrial, and residential spaces.",
     longDescription: "Our professional cleaning team is equipped to handle everything from daily office maintenance to deep industrial cleaning. We specialize in high-traffic commercial environments where hygiene and presentation are paramount. Using medical-grade disinfectants and advanced extraction machinery, we ensure that every square inch of your facility meets the highest international standards. Our staff is trained in specialized chemical handling and workplace safety, ensuring a seamless operation that never disrupts your core business activities. We take pride in being the silent force that keeps your professional image sparkling.",
     image: "/projects/cleaning_service.png",
+    detailImage: "/projects/cleaning_detail.png",
     features: [
       "Full Commercial Office Daily Maintenance",
       "Industrial Warehouse & Factory Deep Cleaning",
@@ -37,6 +39,7 @@ const serviceData: Record<string, {
     description: "Reliable and safe electrical installations, maintenance, and troubleshooting by certified professionals.",
     longDescription: "Our certified electrical team brings decades of combined experience to every circuit we wire. We handle complex industrial power distributions, commercial lighting designs, and precision residential troubleshooting. We understand that electrical integrity is the backbone of any modern operation, which is why we never compromise on safety or material quality. From upgrading outdated switchgear to implementing energy-efficient LED retrofits, we provide solutions that reduce your long-term energy costs while maximizing system uptime. Every wire pulled and every panel labeled is a testament to our commitment to engineering excellence.",
     image: "/projects/electrical_service.png",
+    detailImage: "/projects/electrical_detail.png",
     features: [
       "Commercial & Industrial Power Distribution",
       "Electrical Panel Design & Upgrades",
@@ -54,6 +57,7 @@ const serviceData: Record<string, {
     description: "From routine maintenance to complex installations, our plumbing experts deliver fast and durable solutions.",
     longDescription: "We provide comprehensive hydraulic engineering and plumbing services that keep your facilities running smoothly. Our team is expert in both pressurized water systems and gravity-fed drainage, ensuring optimal flow and zero leaks. We utilize acoustic leak detection technology and thermal imaging to find hidden issues before they become catastrophic failures. Whether it's a large-scale commercial bathroom renovation or maintaining the fire suppression lines in an industrial plant, we bring a level of precision that is rare in the trade. We don't just fix pipes; we engineer systems that last for generations.",
     image: "/projects/plumbing_service.png",
+    detailImage: "/projects/plumbing_detail.png",
     features: [
       "Precision Acoustic Leak Detection",
       "Commercial Bathroom & Kitchen Overhauls",
@@ -71,6 +75,7 @@ const serviceData: Record<string, {
     description: "Transform your spaces with our premium painting services. High-quality finishes for both interior and exterior walls.",
     longDescription: "Our painting division doesn't just apply color; we protect your investment. We understand the chemistry of coatings, ensuring that every surface is perfectly primed for its specific environmental conditions. From high-durability epoxy coatings for industrial floors to luxury decorative finishes for corporate boardrooms, we deliver a level of craftsmanship that elevates the entire property. Our meticulous preparation process—including surface repair, damp proofing, and precision masking—ensures a finish that is not only beautiful but exceptionally durable. We transform environments into inspiring spaces through the power of professional coating technology.",
     image: "/projects/painting_service.png",
+    detailImage: "/projects/painting_detail.png",
     features: [
       "Premium Interior & Exterior Coating",
       "Industrial Floor Epoxy & Specialized Finishes",
@@ -88,6 +93,7 @@ const serviceData: Record<string, {
     description: "Expert paving for driveways, walkways, and patios. We provide beautiful, long-lasting hardscape solutions.",
     longDescription: "Our paving specialists are masters of civil earthworks and hardscape design. We understand that a great paved surface starts with what's underneath, which is why we spend more time on sub-base preparation and compaction than anyone else. Whether laying heavy-duty interlocking bricks for a logistics yard or intricate natural stone for a high-end patio, we ensure perfect levels and optimal drainage. Our surfaces are designed to withstand heavy loads and South Africa's harsh weather conditions without shifting or cracking. We create the foundations upon which your commercial and residential life happens.",
     image: "/projects/paving_service.png",
+    detailImage: "/projects/paving_detail.png",
     features: [
       "Heavy-Duty Industrial & Logistics Paving",
       "Architectural Brick & Natural Stone Laying",
@@ -122,31 +128,37 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
   return (
     <div className="min-h-screen bg-gray-50 pb-24">
       {/* Hero Section */}
-      <section className="relative h-[65vh] min-h-[500px] flex flex-col justify-end overflow-hidden">
+      <section className="relative h-[60vh] min-h-[450px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={service.image}
             alt={service.title}
             fill
-            className="object-cover scale-105"
+            className="object-cover object-center scale-105 transform transition-transform duration-1000 group-hover:scale-100"
             priority
           />
-          <div className="absolute inset-0 bg-emerald-950/60 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-900/40 to-transparent" />
+          {/* Multi-layered overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/80 via-emerald-900/60 to-teal-900/70" />
+          <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent to-transparent opacity-100" />
         </div>
         
-        <div className="relative z-10 max-w-6xl mx-auto w-full px-6 pb-20">
-          <Link href="/projects" className="inline-flex items-center text-emerald-300 hover:text-white transition-all mb-8 font-semibold tracking-wide uppercase text-sm group">
-            <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-2" />
+        <div className="relative z-10 max-w-5xl mx-auto w-full px-6 text-center">
+          <Link href="/projects" className="inline-flex items-center text-emerald-300 hover:text-white transition-all mb-6 font-semibold tracking-wide uppercase text-xs group">
+            <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
             Back to Project Hub
           </Link>
-          <div className="space-y-6">
-            <div className="inline-flex items-center px-5 py-2 rounded-full bg-emerald-500/30 text-emerald-100 border border-emerald-500/40 text-xs font-bold tracking-[0.2em] uppercase backdrop-blur-sm">
+          
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[2.5rem] p-8 md:p-12 shadow-2xl space-y-6 max-w-4xl mx-auto">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-500/30 text-emerald-50 border border-emerald-400/30 text-xs font-bold tracking-[0.2em] uppercase">
               {service.subtitle}
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-2xl tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg tracking-tight">
               {service.title}
             </h1>
+            <p className="text-emerald-50/90 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+              {service.description}
+            </p>
           </div>
         </div>
       </section>
@@ -163,9 +175,19 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
                     <div className="w-12 h-1 bg-emerald-500 rounded-full" />
                     <h2 className="text-3xl font-bold text-gray-900 uppercase tracking-tight">Service Overview</h2>
                   </div>
-                  <p className="text-xl text-gray-600 leading-relaxed font-light">
-                    {service.longDescription}
-                  </p>
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <p className="text-xl text-gray-600 leading-relaxed font-light">
+                      {service.longDescription}
+                    </p>
+                    <div className="relative h-72 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+                      <Image
+                        src={service.detailImage}
+                        alt={`${service.title} detail`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
                 </section>
 
                 <div className="h-px bg-gray-100" />
