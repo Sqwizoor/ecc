@@ -86,8 +86,9 @@ const serviceData: Record<string, {
   },
 };
 
-export function generateMetadata({ params }: { params: { service: string } }): Metadata {
-  const service = serviceData[params.service];
+export async function generateMetadata({ params }: { params: Promise<{ service: string }> }): Promise<Metadata> {
+  const { service: serviceId } = await params;
+  const service = serviceData[serviceId];
   if (!service) return { title: "Service Not Found" };
   return {
     title: `${service.title} | ElijahChurch Projects`,
@@ -95,8 +96,9 @@ export function generateMetadata({ params }: { params: { service: string } }): M
   };
 }
 
-export default function ServicePage({ params }: { params: { service: string } }) {
-  const service = serviceData[params.service];
+export default async function ServicePage({ params }: { params: Promise<{ service: string }> }) {
+  const { service: serviceId } = await params;
+  const service = serviceData[serviceId];
 
   if (!service) {
     notFound();
