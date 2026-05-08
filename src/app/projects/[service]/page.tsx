@@ -128,37 +128,31 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
   return (
     <div className="min-h-screen bg-gray-50 pb-24">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[450px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[65vh] min-h-[500px] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={service.image}
             alt={service.title}
             fill
-            className="object-cover object-center scale-105 transform transition-transform duration-1000 group-hover:scale-100"
+            className="object-cover scale-105"
             priority
           />
-          {/* Multi-layered overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/80 via-emerald-900/60 to-teal-900/70" />
-          <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent to-transparent opacity-100" />
+          <div className="absolute inset-0 bg-emerald-950/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-900/40 to-transparent" />
         </div>
         
-        <div className="relative z-10 max-w-5xl mx-auto w-full px-6 text-center">
-          <Link href="/projects" className="inline-flex items-center text-emerald-300 hover:text-white transition-all mb-6 font-semibold tracking-wide uppercase text-xs group">
-            <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
+        <div className="relative z-10 max-w-6xl mx-auto w-full px-6 pb-20">
+          <Link href="/projects" className="inline-flex items-center text-emerald-300 hover:text-white transition-all mb-8 font-semibold tracking-wide uppercase text-sm group">
+            <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-2" />
             Back to Project Hub
           </Link>
-          
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[2.5rem] p-8 md:p-12 shadow-2xl space-y-6 max-w-4xl mx-auto">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-500/30 text-emerald-50 border border-emerald-400/30 text-xs font-bold tracking-[0.2em] uppercase">
+          <div className="space-y-6">
+            <div className="inline-flex items-center px-5 py-2 rounded-full bg-emerald-500/30 text-emerald-100 border border-emerald-500/40 text-xs font-bold tracking-[0.2em] uppercase backdrop-blur-sm">
               {service.subtitle}
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-2xl tracking-tight">
               {service.title}
             </h1>
-            <p className="text-emerald-50/90 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-              {service.description}
-            </p>
           </div>
         </div>
       </section>
