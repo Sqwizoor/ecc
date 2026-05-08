@@ -13,6 +13,7 @@ const serviceData: Record<string, {
   longDescription: string;
   image: string;
   detailImage: string;
+  gallery: string[];
   features: string[];
 }> = {
   cleaning: {
@@ -22,6 +23,12 @@ const serviceData: Record<string, {
     longDescription: "Our professional cleaning team is equipped to handle everything from daily office maintenance to deep industrial cleaning. We specialize in high-traffic commercial environments where hygiene and presentation are paramount. Using medical-grade disinfectants and advanced extraction machinery, we ensure that every square inch of your facility meets the highest international standards. Our staff is trained in specialized chemical handling and workplace safety, ensuring a seamless operation that never disrupts your core business activities. We take pride in being the silent force that keeps your professional image sparkling.",
     image: "/projects/cleaning_service.png",
     detailImage: "/projects/cleaning_detail.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6954?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=600",
+    ],
     features: [
       "Full Commercial Office Daily Maintenance",
       "Industrial Warehouse & Factory Deep Cleaning",
@@ -40,6 +47,12 @@ const serviceData: Record<string, {
     longDescription: "Our certified electrical team brings decades of combined experience to every circuit we wire. We handle complex industrial power distributions, commercial lighting designs, and precision residential troubleshooting. We understand that electrical integrity is the backbone of any modern operation, which is why we never compromise on safety or material quality. From upgrading outdated switchgear to implementing energy-efficient LED retrofits, we provide solutions that reduce your long-term energy costs while maximizing system uptime. Every wire pulled and every panel labeled is a testament to our commitment to engineering excellence.",
     image: "/projects/electrical_service.png",
     detailImage: "/projects/electrical_detail.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1621905252507-b354bcadcabc?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1558211583-d26f610c1eb1?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=600",
+    ],
     features: [
       "Commercial & Industrial Power Distribution",
       "Electrical Panel Design & Upgrades",
@@ -58,6 +71,12 @@ const serviceData: Record<string, {
     longDescription: "We provide comprehensive hydraulic engineering and plumbing services that keep your facilities running smoothly. Our team is expert in both pressurized water systems and gravity-fed drainage, ensuring optimal flow and zero leaks. We utilize acoustic leak detection technology and thermal imaging to find hidden issues before they become catastrophic failures. Whether it's a large-scale commercial bathroom renovation or maintaining the fire suppression lines in an industrial plant, we bring a level of precision that is rare in the trade. We don't just fix pipes; we engineer systems that last for generations.",
     image: "/projects/plumbing_service.png",
     detailImage: "/projects/plumbing_detail.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80&w=600",
+    ],
     features: [
       "Precision Acoustic Leak Detection",
       "Commercial Bathroom & Kitchen Overhauls",
@@ -76,6 +95,12 @@ const serviceData: Record<string, {
     longDescription: "Our painting division doesn't just apply color; we protect your investment. We understand the chemistry of coatings, ensuring that every surface is perfectly primed for its specific environmental conditions. From high-durability epoxy coatings for industrial floors to luxury decorative finishes for corporate boardrooms, we deliver a level of craftsmanship that elevates the entire property. Our meticulous preparation process—including surface repair, damp proofing, and precision masking—ensures a finish that is not only beautiful but exceptionally durable. We transform environments into inspiring spaces through the power of professional coating technology.",
     image: "/projects/painting_service.png",
     detailImage: "/projects/painting_detail.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&q=80&w=600",
+    ],
     features: [
       "Premium Interior & Exterior Coating",
       "Industrial Floor Epoxy & Specialized Finishes",
@@ -94,6 +119,12 @@ const serviceData: Record<string, {
     longDescription: "Our paving specialists are masters of civil earthworks and hardscape design. We understand that a great paved surface starts with what's underneath, which is why we spend more time on sub-base preparation and compaction than anyone else. Whether laying heavy-duty interlocking bricks for a logistics yard or intricate natural stone for a high-end patio, we ensure perfect levels and optimal drainage. Our surfaces are designed to withstand heavy loads and South Africa's harsh weather conditions without shifting or cracking. We create the foundations upon which your commercial and residential life happens.",
     image: "/projects/paving_service.png",
     detailImage: "/projects/paving_detail.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1590059353911-309191d5ef2e?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600",
+    ],
     features: [
       "Heavy-Duty Industrial & Logistics Paving",
       "Architectural Brick & Natural Stone Laying",
@@ -169,19 +200,9 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
                     <div className="w-12 h-1 bg-emerald-500 rounded-full" />
                     <h2 className="text-3xl font-bold text-gray-900 uppercase tracking-tight">Service Overview</h2>
                   </div>
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <p className="text-xl text-gray-600 leading-relaxed font-light">
-                      {service.longDescription}
-                    </p>
-                    <div className="relative h-72 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-                      <Image
-                        src={service.detailImage}
-                        alt={`${service.title} detail`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
+                  <p className="text-xl text-gray-600 leading-relaxed font-light">
+                    {service.longDescription}
+                  </p>
                 </section>
 
                 <div className="h-px bg-gray-100" />
@@ -224,6 +245,28 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
                         Built on the foundation of Christ, our business practices are transparent, honest, and reliable at every step.
                       </p>
                     </div>
+                  </div>
+                </section>
+
+                <div className="h-px bg-gray-100" />
+
+                {/* New Section: Gallery */}
+                <section>
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="w-12 h-1 bg-emerald-500 rounded-full" />
+                    <h2 className="text-3xl font-bold text-gray-900 uppercase tracking-tight">Project Gallery</h2>
+                  </div>
+                  <div className="grid grid-cols-2 gap-6">
+                    {service.gallery.map((img, idx) => (
+                      <div key={idx} className="relative h-48 md:h-64 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+                        <Image
+                          src={img}
+                          alt={`${service.title} gallery ${idx + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    ))}
                   </div>
                 </section>
               </div>

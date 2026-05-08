@@ -15,7 +15,17 @@ const navigation = [
 	{ name: "Ministry", href: "/services" },
 	{ name: "Gallery", href: "/gallery" },
 	{ name: "Charity", href: "/charity" },
-	{ name: "Projects", href: "/projects" },
+	{ 
+		name: "Projects", 
+		href: "/projects",
+		children: [
+			{ name: "Cleaning Services", href: "/projects/cleaning" },
+			{ name: "Electrical Works", href: "/projects/electrical" },
+			{ name: "Plumbing Services", href: "/projects/plumbing" },
+			{ name: "Painting Services", href: "/projects/painting" },
+			{ name: "Paving Services", href: "/projects/paving" },
+		]
+	},
 	{ name: "Contact", href: "/contact" },
 ];
 
@@ -58,19 +68,37 @@ export default function Navigation() {
 								initial={{ opacity: 0, y: -12 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ delay: 0.25 + index * 0.07 }}
+								className="relative group"
 							>
 								<Link
 									href={item.href}
 									className={cn(
-										"relative group text-sm font-medium px-4 py-2 rounded-full transition-colors",
+										"relative text-sm font-medium px-4 py-2 rounded-full transition-colors inline-flex items-center gap-1",
 										pathname === item.href
 											? "text-gray-900 bg-gray-900/5"
 											: "text-gray-700 hover:text-gray-900 hover:bg-gray-900/5"
 									)}
 								>
 									{item.name}
+									{"children" in item && (
+										<svg className="w-4 h-4 ml-1 text-gray-400 group-hover:text-gray-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+									)}
 									<span className="absolute left-4 right-4 -bottom-0.5 h-0.5 origin-left scale-x-0 group-hover:scale-x-100 transition-transform bg-emerald-600" />
 								</Link>
+								
+								{"children" in item && item.children && (
+									<div className="absolute left-0 mt-1 w-56 bg-white border border-gray-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden py-2">
+										{(item.children as any[]).map((child) => (
+											<Link
+												key={child.name}
+												href={child.href}
+												className="block px-6 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
+											>
+												{child.name}
+											</Link>
+										))}
+									</div>
+								)}
 							</motion.div>
 						))}
 
@@ -190,6 +218,20 @@ export default function Navigation() {
 									>
 										{item.name}
 									</Link>
+									{"children" in item && item.children && (
+										<div className="pl-6 space-y-1 mt-1">
+											{(item.children as any[]).map((child) => (
+												<Link
+													key={child.name}
+													href={child.href}
+													onClick={() => setIsOpen(false)}
+													className="block text-sm font-medium py-2 px-4 rounded-lg text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 transition-colors"
+												>
+													{child.name}
+												</Link>
+											))}
+										</div>
+									)}
 								</motion.div>
 							))}
 
