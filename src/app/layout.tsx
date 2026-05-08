@@ -6,6 +6,8 @@ import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import FloatingActions from "@/components/FloatingActions";
 import PrayerLineBanner from "@/components/PrayerLineBanner";
+import { ConvexClientProvider } from "@/components/ConvexClientProvider";
+import AIChat from "@/components/AIChat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,14 +75,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} ${exo2.variable}`}>
       <body className={"antialiased bg-white text-gray-900"}>
-        <Navigation />
-        <main className="min-h-screen">
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </main>
-        <PrayerLineBanner />
-  <FloatingActions />
+        <ConvexClientProvider>
+          <Navigation />
+          <main className="min-h-screen">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
+          <PrayerLineBanner />
+          <FloatingActions />
+          <AIChat />
+        </ConvexClientProvider>
         <footer className="border-t border-gray-200 bg-white">
           <div className="max-w-7xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-4">
             <div>

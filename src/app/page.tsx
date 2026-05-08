@@ -608,7 +608,37 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      
+      {/* Employment & Skills Section */}
+      <section className="py-20 relative overflow-hidden bg-emerald-950 text-emerald-50">
+        <div className="absolute inset-0 opacity-10 bg-[url('/projects/projects_hero.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-900/90 to-emerald-950" />
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full" />
+            <blockquote className="text-2xl md:text-4xl font-light italic leading-relaxed text-emerald-100">
+              "Pastor Elijah does not believe that any person can go without Employment. God has Given every man with a skill."
+            </blockquote>
+            <div className="text-emerald-400 font-semibold tracking-widest uppercase text-sm">
+              — Exodus 31:6 —
+            </div>
+            <div className="w-16 h-1 bg-emerald-500 mx-auto rounded-full" />
+            <div className="pt-8">
+              <Link href="/projects">
+                <Button size="lg" className="rounded-full bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-semibold px-8 shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] transition-all">
+                  Explore ElijahChurch Projects
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Services Preview (styled like Services page, with images) */}
       <section className="section-padding skincare-gradient">
         <div className="max-w-7xl mx-auto">
