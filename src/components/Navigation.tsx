@@ -24,6 +24,7 @@ const navigation = [
 			{ name: "Plumbing Services", href: "/projects/plumbing" },
 			{ name: "Painting Services", href: "/projects/painting" },
 			{ name: "Paving Services", href: "/projects/paving" },
+			{ name: "Landscaping Services", href: "/projects/landscaping" },
 		]
 	},
 	{ name: "Contact", href: "/contact" },
@@ -39,6 +40,9 @@ export default function Navigation() {
 			animate={{ y: 0 }}
 			className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-gray-200 shadow-sm"
 		>
+			<div className="bg-yellow-300 text-black py-2 px-4 text-center text-xs md:text-sm font-bold border-b border-yellow-400">
+				Donate to Elijah Youth Projects! | Empowering youth with skills and employment to reduce crime and hopelessness. | Pay tithe. | Sow a seed.
+			</div>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-20">
 					{/* Logo */}

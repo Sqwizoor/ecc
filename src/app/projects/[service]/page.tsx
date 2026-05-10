@@ -136,6 +136,30 @@ const serviceData: Record<string, {
       "Patio & Pool Surround Craftsmanship",
     ],
   },
+  landscaping: {
+    title: "Landscaping Services",
+    subtitle: "Green Spaces & Garden Mastery",
+    description: "Transform your outdoor areas with our premium landscaping and garden design services.",
+    longDescription: "Our landscaping division brings artistry and horticulture expertise to your outdoor spaces. We specialize in creating sustainable, beautiful gardens that enhance the value of your property and provide a serene environment. From soil preparation and plant selection to installing complex irrigation systems and hardscape elements, we handle it all. Our team is trained in modern landscape architecture and eco-friendly gardening practices, ensuring that your green spaces thrive in South Africa's climate. We don't just plant gardens; we create living art.",
+    image: "/projects/landscaping_service.png",
+    detailImage: "/projects/landscaping_detail.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1558905756-32d211d08794?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1592150621344-22d7d7ca9e0a?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?auto=format&fit=crop&q=80&w=600",
+    ],
+    features: [
+      "Custom Garden Design & Installation",
+      "Automated Irrigation System Setup",
+      "Lawn Installation & Maintenance",
+      "Tree Felling & Pruning",
+      "Soil Conditioning & Fertilization",
+      "Hardscape Integration (Paths, Borders)",
+      "Seasonal Flower Bed Planting",
+      "Eco-Friendly & Indigenous Plant Selection",
+    ],
+  },
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ service: string }> }): Promise<Metadata> {
