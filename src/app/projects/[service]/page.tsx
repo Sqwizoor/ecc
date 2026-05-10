@@ -24,10 +24,10 @@ const serviceData: Record<string, {
     image: "/projects/cleaning_service.png",
     detailImage: "/projects/cleaning_detail.png",
     gallery: [
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6954?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=600",
+      "/projects/cleaning_1.png",
+      "/projects/cleaning_2.png",
+      "/projects/cleaning_3.png",
+      "/projects/cleaning_4.png",
     ],
     features: [
       "Full Commercial Office Daily Maintenance",
@@ -48,10 +48,10 @@ const serviceData: Record<string, {
     image: "/projects/electrical_service.png",
     detailImage: "/projects/electrical_detail.png",
     gallery: [
-      "https://images.unsplash.com/photo-1621905252507-b354bcadcabc?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1558211583-d26f610c1eb1?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=600",
+      "/projects/electrical_1.png",
+      "/projects/electrical_2.png",
+      "/projects/electrical_3.png",
+      "/projects/electrical_4.png",
     ],
     features: [
       "Commercial & Industrial Power Distribution",
@@ -72,9 +72,9 @@ const serviceData: Record<string, {
     image: "/projects/plumbing_service.png",
     detailImage: "/projects/plumbing_detail.png",
     gallery: [
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&q=80&w=600",
+      "/projects/plumbing_1.png",
+      "/projects/plumbing_2.png",
+      "/projects/plumbing_3.png",
       "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80&w=600",
     ],
     features: [
