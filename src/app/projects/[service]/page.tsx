@@ -144,10 +144,10 @@ const serviceData: Record<string, {
     image: "/projects/landscaping_service.png",
     detailImage: "/projects/landscaping_detail.png",
     gallery: [
-      "https://images.unsplash.com/photo-1558905756-32d211d08794?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1592150621344-22d7d7ca9e0a?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?auto=format&fit=crop&q=80&w=600",
+      "/projects/landscaping_1.png",
+      "/projects/landscaping_2.png",
+      "/projects/landscaping_3.png",
+      "/projects/landscaping_4.png",
     ],
     features: [
       "Custom Garden Design & Installation",
