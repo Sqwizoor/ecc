@@ -47,9 +47,14 @@ const donationOptions = [
   {
     id: "monthly",
     title: "Monthly Partner",
-    amount: "R200 - R1000",
-    description: "Help sustain our healing ministry and leadership development programs",
-    features: ["Monthly ministry reports", "Special prayer requests", "Exclusive fellowship events", "Leadership training access"],
+    amount: "R200",
+    description: "Become a partner of Elijah projects and enjoy exclusive discounted services on all our professional works.",
+    features: [
+      "Monthly ministry reports", 
+      "Special prayer requests", 
+      "Discounted services for work done by our team", 
+      "Discounts on plumbing, painting and electrical job cards"
+    ],
     popular: true,
     icon: Heart,
     color: "from-emerald-500 to-teal-500"
@@ -144,7 +149,7 @@ ${donorInfo.message || "I want to support the ministry and help change lives."}
               transition={{ delay: 0.5 }}
             >
               “DON’T WAIT FOR SOMEBODY ELSE TO DO IT, PLAY YOUR PART IN SOMEONE’S LIFE.” - Matthew 25:35-40. 
-              Join us in changing lives through your faithful partnership.
+              Join us in changing lives through your faithful partnership. We also have to add youth projects to teach skills to children who are vulnerable and on streets helping them to become useful to society.
             </motion.p>
 
             <motion.div 

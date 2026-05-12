@@ -114,7 +114,7 @@ export default function ProjectsPage() {
             {/* Text Content */}
             <div className="md:col-span-7 space-y-6">
               <div className="w-20 h-1.5 bg-emerald-500 rounded-full mb-6" />
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Professional Excellence Built on <span className="text-emerald-600">Faith</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">APOSTLE Elijah founder and General overseer of Elijah church of christ</h2>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Pastor Elijah believes that no person should go without employment. Through ElijahChurch Projects, we offer top-tier professional services to the community while empowering individuals with meaningful work. Every project we undertake is an opportunity to manifest God's excellence through human skill and dedication.
               </p>
@@ -239,11 +239,14 @@ export default function ProjectsPage() {
                   Our projects are designed to create employment opportunities to reduce hopelessness, crime, and drug abuse in our communities. We give skills to the youth and help them find dignity in work.
                 </p>
                 <p>
-                  Because this is church work, we charge **half the market price** for all the services we provide (Cleaning, Electrical, Plumbing, etc.), making it affordable for the community while still paying our workers.
+                  We also have to add youth projects to teach skills to children who are vulnerable and on streets helping them to become useful to society.
                 </p>
-                <p>
-                  Your donations help us employ more people, teach more skills, and expand our reach to save more lives.
-                </p>
+                <div className="bg-white/10 p-6 rounded-2xl border border-white/20 mt-6">
+                  <h4 className="font-bold text-emerald-300 mb-2">Monthly Partnership Subscription — R200</h4>
+                  <p className="text-sm text-emerald-50/90 leading-relaxed">
+                    Subscribe to become a partner of Elijah projects. Partners get discounted services for the work done by our team. Subscribe to qualify for discounts on all quotations for job cards on plumbing, painting and electrical work.
+                  </p>
+                </div>
               </div>
             </div>
             

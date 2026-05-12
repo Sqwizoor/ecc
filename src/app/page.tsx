@@ -1529,8 +1529,14 @@ export default function HomePage() {
             </motion.h2>
             <motion.p variants={itemFadeUp} className="text-lg text-gray-600 max-w-2xl mx-auto">
               Every gift advances the mission: feeding programs, street outreach, healing ministry
-              and leadership development. Thank you for your generosity.
+              and leadership development. We also have to add youth projects to teach skills to children who are vulnerable and on streets helping them to become useful to society.
             </motion.p>
+            <motion.div variants={itemFadeUp} className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 mt-6 max-w-xl mx-auto">
+              <h4 className="font-bold text-emerald-900 mb-2">Monthly Partnership Subscription — R200</h4>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Subscribe to become a partner of Elijah projects. Partners get discounted services for the work done by our team. Subscribe to qualify for discounts on all quotations for job cards on plumbing, painting and electrical work.
+              </p>
+            </motion.div>
             <motion.div variants={itemFadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="https://wa.me/27637310437?text=I%20would%20like%20to%20donate%20to%20Elijah%20Church%20of%20Christ"

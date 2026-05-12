@@ -309,7 +309,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
                   <div className="space-y-4">
                     <h3 className="text-3xl font-bold leading-tight">Secure Your Service Today</h3>
                     <p className="text-emerald-100/70 text-lg leading-relaxed">
-                      Experience the perfect blend of professional excellence and faith-led dedication.
+                      APOSTLE Elijah founder and General overseer of Elijah church of christ
                     </p>
                   </div>
                   <div className="space-y-4">
