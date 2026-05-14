@@ -24,10 +24,10 @@ const serviceData: Record<string, {
     image: "/projects/cleaning_service.png",
     detailImage: "/projects/cleaning_detail.png",
     gallery: [
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.49 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.51 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM (1).jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM.jpeg",
+      "/projects/cleaning_1.png",
+      "/projects/cleaning_2.png",
+      "/projects/cleaning_3.png",
+      "/projects/cleaning_4.png",
     ],
     features: [
       "Full Commercial Office Daily Maintenance",
@@ -48,10 +48,10 @@ const serviceData: Record<string, {
     image: "/projects/electrical_service.png",
     detailImage: "/projects/electrical_detail.png",
     gallery: [
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.49 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM (1).jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.51 PM.jpeg",
+      "/projects/electrical_1.png",
+      "/projects/electrical_2.png",
+      "/projects/electrical_3.png",
+      "/projects/electrical_4.png",
     ],
     features: [
       "Commercial & Industrial Power Distribution",
@@ -72,10 +72,10 @@ const serviceData: Record<string, {
     image: "/projects/plumbing_service.png",
     detailImage: "/projects/plumbing_detail.png",
     gallery: [
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM (2).jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.53 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.49 PM.jpeg",
+      "/projects/plumbing_1.png",
+      "/projects/plumbing_2.png",
+      "/projects/plumbing_3.png",
+      "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80&w=600",
     ],
     features: [
       "Precision Acoustic Leak Detection",
@@ -96,10 +96,10 @@ const serviceData: Record<string, {
     image: "/projects/painting_service.png",
     detailImage: "/projects/painting_detail.png",
     gallery: [
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.51 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM (1).jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.49 PM.jpeg",
+      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&q=80&w=600",
     ],
     features: [
       "Premium Interior & Exterior Coating",
@@ -120,10 +120,10 @@ const serviceData: Record<string, {
     image: "/projects/paving_service.png",
     detailImage: "/projects/paving_detail.png",
     gallery: [
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM (1).jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.51 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM (2).jpeg",
+      "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1590059353911-309191d5ef2e?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80&w=600",
+      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600",
     ],
     features: [
       "Heavy-Duty Industrial & Logistics Paving",
@@ -144,10 +144,10 @@ const serviceData: Record<string, {
     image: "/projects/landscaping_service.png",
     detailImage: "/projects/landscaping_detail.png",
     gallery: [
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.53 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.49 PM.jpeg",
-      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.51 PM.jpeg",
+      "/projects/landscaping_1.png",
+      "/projects/landscaping_2.png",
+      "/projects/landscaping_3.png",
+      "/projects/landscaping_4.png",
     ],
     features: [
       "Custom Garden Design & Installation",
