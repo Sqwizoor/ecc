@@ -24,10 +24,10 @@ const serviceData: Record<string, {
     image: "/projects/cleaning_service.png",
     detailImage: "/projects/cleaning_detail.png",
     gallery: [
-      "/projects/cleaning_1.png",
-      "/projects/cleaning_2.png",
-      "/projects/cleaning_3.png",
-      "/projects/cleaning_4.png",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.49 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.51 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM (1).jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM.jpeg",
     ],
     features: [
       "Full Commercial Office Daily Maintenance",
@@ -48,10 +48,10 @@ const serviceData: Record<string, {
     image: "/projects/electrical_service.png",
     detailImage: "/projects/electrical_detail.png",
     gallery: [
-      "/projects/electrical_1.png",
-      "/projects/electrical_2.png",
-      "/projects/electrical_3.png",
-      "/projects/electrical_4.png",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.49 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM (1).jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.51 PM.jpeg",
     ],
     features: [
       "Commercial & Industrial Power Distribution",
@@ -72,10 +72,10 @@ const serviceData: Record<string, {
     image: "/projects/plumbing_service.png",
     detailImage: "/projects/plumbing_detail.png",
     gallery: [
-      "/projects/plumbing_1.png",
-      "/projects/plumbing_2.png",
-      "/projects/plumbing_3.png",
-      "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80&w=600",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM (2).jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.53 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.49 PM.jpeg",
     ],
     features: [
       "Precision Acoustic Leak Detection",
@@ -96,10 +96,10 @@ const serviceData: Record<string, {
     image: "/projects/painting_service.png",
     detailImage: "/projects/painting_detail.png",
     gallery: [
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&q=80&w=600",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.51 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM (1).jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.49 PM.jpeg",
     ],
     features: [
       "Premium Interior & Exterior Coating",
@@ -120,10 +120,10 @@ const serviceData: Record<string, {
     image: "/projects/paving_service.png",
     detailImage: "/projects/paving_detail.png",
     gallery: [
-      "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1590059353911-309191d5ef2e?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM (1).jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.51 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM (2).jpeg",
     ],
     features: [
       "Heavy-Duty Industrial & Logistics Paving",
@@ -144,10 +144,10 @@ const serviceData: Record<string, {
     image: "/projects/landscaping_service.png",
     detailImage: "/projects/landscaping_detail.png",
     gallery: [
-      "/projects/landscaping_1.png",
-      "/projects/landscaping_2.png",
-      "/projects/landscaping_3.png",
-      "/projects/landscaping_4.png",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.53 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.49 PM.jpeg",
+      "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.51 PM.jpeg",
     ],
     features: [
       "Custom Garden Design & Installation",
@@ -324,6 +324,42 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
                         Direct Helpline
                       </Button>
                     </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pastor & Foundational Verses */}
+              <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100">
+                <div className="relative h-80 w-full">
+                  <Image
+                    src="/main-pasto.jpeg"
+                    alt="Pastor Elijah"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <p className="text-white font-bold text-lg leading-tight">APOSTLE Elijah</p>
+                    <p className="text-emerald-400 text-sm font-medium">Founder & General Overseer</p>
+                  </div>
+                </div>
+                <div className="p-8 space-y-6">
+                  <p className="text-gray-900 font-bold leading-relaxed">
+                    Serving as a good stewardship our General overseer Apostle Elijah lives and followers the word of God.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-2 shrink-0" />
+                      <p className="text-sm text-gray-600 italic">"Moreover, it is required of stewards that they be found faithful." <span className="block font-bold text-gray-900 not-italic mt-1">— 1 Cor 4:2</span></p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-2 shrink-0" />
+                      <p className="text-sm text-gray-600 italic">"Each of you should use whatever gift you have received to serve others..." <span className="block font-bold text-gray-900 not-italic mt-1">— 1 Peter 4:10</span></p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-2 shrink-0" />
+                      <p className="text-sm text-gray-600 italic">"Whatever you do, work heartily, as for the Lord and not for men." <span className="block font-bold text-gray-900 not-italic mt-1">— Col 3:23</span></p>
+                    </div>
                   </div>
                 </div>
               </div>

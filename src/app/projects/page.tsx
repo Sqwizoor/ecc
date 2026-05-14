@@ -109,6 +109,34 @@ export default function ProjectsPage() {
                   className="object-cover"
                 />
               </div>
+
+              {/* Bible Verses */}
+              <div className="mt-8 space-y-6 bg-emerald-950 p-8 rounded-3xl text-white shadow-xl border border-emerald-800/50">
+                <p className="text-emerald-100 font-medium leading-relaxed">
+                  Serving as a good stewardship our General overseer Apostle Elijah lives and followers the word of God.
+                </p>
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2.5 shrink-0" />
+                  <div>
+                    <p className="font-bold text-emerald-400">1 Corinthians 4:2 (ESV)</p>
+                    <p className="text-emerald-50/90 italic leading-relaxed">"Moreover, it is required of stewards that they be found faithful."</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2.5 shrink-0" />
+                  <div>
+                    <p className="font-bold text-emerald-400">1 Peter 4:10 (NIV)</p>
+                    <p className="text-emerald-50/90 italic leading-relaxed">"Each of you should use whatever gift you have received to serve others, as faithful stewards of God’s grace in its various forms."</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2.5 shrink-0" />
+                  <div>
+                    <p className="font-bold text-emerald-400">Colossians 3:23 (ESV)</p>
+                    <p className="text-emerald-50/90 italic leading-relaxed">"Whatever you do, work heartily, as for the Lord and not for men."</p>
+                  </div>
+                </div>
+              </div>
             </div>
             
             {/* Text Content */}
@@ -177,6 +205,45 @@ export default function ProjectsPage() {
               </Link>
             );
           })}
+        </div>
+      </section>
+ 
+      {/* Project Gallery Section */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Project Gallery</h2>
+            <div className="w-24 h-1.5 bg-emerald-500 rounded-full mx-auto mb-6" />
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              A glimpse into our recent work and community transformation projects.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.49 PM.jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.41.51 PM.jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM (1).jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.48 PM.jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.49 PM.jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM (1).jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.50 PM.jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.51 PM.jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM (2).jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.52 PM.jpeg",
+              "/new-imagegallary/WhatsApp Image 2026-05-13 at 5.42.53 PM.jpeg"
+            ].map((img, idx) => (
+              <div key={idx} className="relative h-64 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+                <Image
+                  src={img}
+                  alt={`Project Gallery ${idx + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-emerald-950/10 group-hover:bg-transparent transition-colors duration-500" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
