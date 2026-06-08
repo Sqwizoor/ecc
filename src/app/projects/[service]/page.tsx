@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, CheckCircle2, Phone, CalendarCheck } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Phone, CalendarCheck, ClipboardList, GraduationCap, UserCheck } from "lucide-react";
 import { notFound } from "next/navigation";
 
 // Service Data mapping
@@ -15,6 +15,15 @@ const serviceData: Record<string, {
   detailImage: string;
   gallery: string[];
   features: string[];
+  training?: {
+    instructorName: string;
+    instructorRole: string;
+    instructorImage: string;
+    headline: string;
+    description: string;
+    highlights: string[];
+    qualifications: string[];
+  };
 }> = {
   cleaning: {
     title: "Cleaning Services",
@@ -63,6 +72,26 @@ const serviceData: Record<string, {
       "Data Cabling & Network Infrastructure",
       "Industrial Motor Control & Maintenance",
     ],
+    training: {
+      instructorName: "Electrical Skills Mentor",
+      instructorRole: "Practical instructor for student electricians",
+      instructorImage: "/projects/electrical_instructor.jpeg",
+      headline: "Hands-on electrical training for our students",
+      description: "Our electrical programme gives students practical exposure under an experienced instructor, helping them build confidence with tools, safety routines, wiring basics, fault finding, and real job-site discipline before they step into work opportunities.",
+      highlights: [
+        "Tool handling, wiring practice, and safety-first habits",
+        "Mentorship for unemployed youth entering the trade",
+        "Guidance toward the qualification path that fits each learner",
+      ],
+      qualifications: [
+        "Electrical Assistant",
+        "Domestic Electrical Installer",
+        "Single Phase Electrician",
+        "Three Phase Electrician",
+        "Solar PV Installation",
+        "Electrical Trade Test Preparation",
+      ],
+    },
   },
   plumbing: {
     title: "Plumbing Services",
@@ -250,6 +279,50 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
 
                 <div className="h-px bg-gray-100" />
 
+                {service.training && (
+                  <>
+                    <section>
+                      <div className="flex items-center gap-4 mb-10">
+                        <div className="w-12 h-1 bg-emerald-500 rounded-full" />
+                        <h2 className="text-3xl font-bold text-gray-900 uppercase tracking-tight">Student Training</h2>
+                      </div>
+                      <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 items-stretch">
+                        <div className="relative min-h-[420px] rounded-[2rem] overflow-hidden shadow-xl border border-gray-100 bg-gray-100">
+                          <Image
+                            src={service.training.instructorImage}
+                            alt={service.training.instructorName}
+                            fill
+                            className="object-cover object-top"
+                          />
+                          <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-gray-950 via-gray-950/70 to-transparent">
+                            <p className="text-white text-2xl font-bold">{service.training.instructorName}</p>
+                            <p className="text-emerald-300 font-semibold">{service.training.instructorRole}</p>
+                          </div>
+                        </div>
+                        <div className="rounded-[2rem] bg-emerald-950 text-white p-8 md:p-10 shadow-xl space-y-8">
+                          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-lg">
+                            <GraduationCap className="h-9 w-9" />
+                          </div>
+                          <div className="space-y-4">
+                            <h3 className="text-3xl font-bold leading-tight">{service.training.headline}</h3>
+                            <p className="text-emerald-50/80 text-lg leading-relaxed">{service.training.description}</p>
+                          </div>
+                          <div className="space-y-4">
+                            {service.training.highlights.map((highlight) => (
+                              <div key={highlight} className="flex items-start gap-4">
+                                <UserCheck className="mt-1 h-5 w-5 shrink-0 text-emerald-300" />
+                                <p className="text-emerald-50/90 font-medium">{highlight}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <div className="h-px bg-gray-100" />
+                  </>
+                )}
+
                 {/* New Section: Why Choose Us */}
                 <section>
                   <div className="flex items-center gap-4 mb-10">
@@ -327,6 +400,45 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
                   </div>
                 </div>
               </div>
+
+              {service.training && (
+                <div className="bg-white rounded-[2.5rem] p-8 shadow-2xl border border-gray-100 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                      <ClipboardList className="h-7 w-7" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">Choose Qualification</h3>
+                      <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600">Electrical students</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Electricians and learners can choose the qualification path they want before speaking with our team.
+                  </p>
+                  <div className="space-y-3">
+                    <label htmlFor="electrical-qualification" className="text-sm font-bold text-gray-700">
+                      Qualification path
+                    </label>
+                    <select
+                      id="electrical-qualification"
+                      className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-4 text-gray-800 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                      defaultValue=""
+                    >
+                      <option value="" disabled>Select a qualification...</option>
+                      {service.training.qualifications.map((qualification) => (
+                        <option key={qualification} value={qualification}>
+                          {qualification}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <Link href="/contact" className="block">
+                    <Button type="button" className="w-full rounded-2xl bg-emerald-600 py-7 text-lg font-bold text-white hover:bg-emerald-700">
+                      Apply for Training
+                    </Button>
+                  </Link>
+                </div>
+              )}
 
               {/* Pastor & Foundational Verses */}
               <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100">
