@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { SmartImage } from "@/components/SmartImage";
 import AudioTestimonial from "@/components/AudioTestimonial";
 import Link from "next/link";
-import { Sparkles, ArrowRight, HeartHandshake, ShieldCheck } from "lucide-react";
+import { ArrowRight, HeartHandshake, ShieldCheck } from "lucide-react";
 
 const containerStagger: Variants = {
   hidden: { opacity: 0 },
@@ -68,15 +68,6 @@ export default function TestimoniesPage() {
           animate="show"
           className="text-center mb-12"
         >
-          <motion.div
-            variants={itemFadeUp}
-            className="inline-flex items-center space-x-3 mb-8"
-          >
-            <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">
-              <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">Praise Reports</span>
-            </div>
-          </motion.div>
           <motion.h1
             variants={itemFadeUp}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
@@ -94,6 +85,82 @@ export default function TestimoniesPage() {
               ← Back to Home
             </Link>
           </motion.div>
+        </motion.div>
+
+        {/* Written Testimonies — Image Gallery at Top */}
+        <motion.div
+          variants={containerStagger}
+          initial="hidden"
+          animate="show"
+          className="mb-14"
+        >
+          <motion.div variants={itemFadeUp} className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+              📝 Written Testimonies
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              In Their Own Words
+            </h2>
+            <p className="text-lg text-gray-600">
+              Real messages shared by our members, exactly as they were written.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Marriage Restoration */}
+            <motion.div variants={itemFadeUp} className="group">
+              <div className="relative rounded-2xl overflow-hidden border border-emerald-100 shadow-lg bg-gray-50 aspect-[10/9]">
+                <SmartImage
+                  src="/testimonies/marriage-testimony-text.jpeg"
+                  alt="Written testimony of a marriage restored through prayer"
+                  fill
+                  className="object-contain w-full"
+                  sizes="(max-width: 768px) 90vw, 450px"
+                />
+              </div>
+              <div className="mt-4 flex items-start justify-between gap-3 px-1">
+                <div>
+                  <div className="font-semibold text-gray-900 mb-1">
+                    Marriage Restored
+                  </div>
+                  <div className="text-sm text-gray-500 leading-relaxed">
+                    "My husband is back… he called me and apologized for
+                    everything."
+                  </div>
+                </div>
+                <span className="shrink-0 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                  Prayer Works
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Burn Healing */}
+            <motion.div variants={itemFadeUp} className="group">
+              <div className="relative rounded-2xl overflow-hidden border border-emerald-100 shadow-lg bg-gray-50 aspect-[10/9]">
+                <SmartImage
+                  src="/testimonies/burn-testimony-text.jpeg"
+                  alt="Written testimony of a burn healed through prayer"
+                  fill
+                  className="object-contain w-full"
+                  sizes="(max-width: 768px) 90vw, 450px"
+                />
+              </div>
+              <div className="mt-4 flex items-start justify-between gap-3 px-1">
+                <div>
+                  <div className="font-semibold text-gray-900 mb-1">
+                    Burn Healed
+                  </div>
+                  <div className="text-sm text-gray-500 leading-relaxed">
+                    "They said they were going to amputate my leg… today my
+                    leg is healed completely."
+                  </div>
+                </div>
+                <span className="shrink-0 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                  God's Grace
+                </span>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Featured Real Healing Testimony */}
@@ -192,27 +259,6 @@ export default function TestimoniesPage() {
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Original written testimony image */}
-          <motion.div
-            variants={itemFadeUp}
-            className="mt-8 max-w-3xl mx-auto"
-          >
-            <div className="text-center mb-4">
-              <div className="text-sm font-semibold text-gray-500 uppercase tracking-widest">
-                The original testimony as shared by our brother
-              </div>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg max-w-md mx-auto aspect-[4/5] bg-gray-50">
-              <SmartImage
-                src="/testimonies/burn-testimony-text.jpeg"
-                alt="Original written testimony of the burn healing shared by a member"
-                fill
-                className="object-contain w-full"
-                sizes="(max-width: 768px) 90vw, 450px"
-              />
             </div>
           </motion.div>
         </motion.div>
