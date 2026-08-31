@@ -916,6 +916,153 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Healing Testimony — Real Story */}
+      <section className="section-padding skincare-gradient relative overflow-hidden" id="healing-testimony">
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              variants={itemFadeUp}
+              className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4"
+            >
+              🙏 Healing Testimony
+            </motion.div>
+            <motion.h2
+              variants={itemFadeUp}
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Healed by God's Grace
+            </motion.h2>
+            <motion.p
+              variants={itemFadeUp}
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+            >
+              A real story of God's healing power through the prayer of
+              Bishop Elijah. What the clinic said was impossible, God
+              restored completely.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Photos */}
+            <motion.div
+              variants={containerStagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid grid-cols-2 gap-4"
+            >
+              <motion.div variants={itemFadeUp} className="relative">
+                <div className="relative rounded-2xl overflow-hidden border border-emerald-100 shadow-lg aspect-[3/4]">
+                  <SmartImage
+                    src="/testimonies/burn-before-after.jpeg"
+                    alt="Burn wound before and after God's healing"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 backdrop-blur rounded-full text-xs font-semibold text-emerald-700 border border-emerald-200 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  Before & After
+                </div>
+              </motion.div>
+              <motion.div variants={itemFadeUp} className="relative pt-8">
+                <div className="relative rounded-2xl overflow-hidden border border-emerald-100 shadow-lg aspect-[3/4]">
+                  <SmartImage
+                    src="/testimonies/burn-healing-progress.jpeg"
+                    alt="The burn wound during the process of healing"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 backdrop-blur rounded-full text-xs font-semibold text-amber-600 border border-amber-200 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                  In Process of Healing
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Story */}
+            <motion.div
+              variants={containerStagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-60px" }}
+            >
+              <motion.div
+                variants={itemFadeUp}
+                className="relative p-8 md:p-10 rounded-3xl bg-white border border-emerald-100 shadow-xl"
+              >
+                <div className="absolute -top-4 left-8 px-4 py-1.5 bg-emerald-600 text-white text-xs font-bold tracking-widest uppercase rounded-full shadow-md">
+                  Real Testimony
+                </div>
+                <blockquote className="space-y-5">
+                  <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-light">
+                    "Good day my brothers and sisters in Christ. About months
+                    ago I was burnt by a fan heater... The wound turned into a
+                    third degree burn and got so infected that they told me at
+                    the clinic they were going to <em>amputate my leg</em> —
+                    until I contacted Bishop Elijah. The man of God prayed for
+                    me for healing... And today my leg is healed completely by
+                    God's grace."
+                  </p>
+                  <footer className="flex items-center gap-4 pt-4 border-t border-gray-100">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold text-lg">
+                      ♥
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">
+                        A Brother in Christ
+                      </div>
+                      <div className="text-sm text-emerald-600 font-medium">
+                        Elijah Church of Christ • Healed by Prayer
+                      </div>
+                    </div>
+                  </footer>
+                </blockquote>
+              </motion.div>
+
+              <motion.div variants={itemFadeUp} className="mt-8 flex flex-wrap items-center gap-6">
+                <Link href="/testimonies">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-8 shadow-[0_0_40px_rgba(16,185,129,0.35)] transition-all"
+                  >
+                    Read More Testimonies
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <div className="flex items-center gap-3 text-sm text-gray-500">
+                  <div className="flex -space-x-2">
+                    {["from-emerald-400 to-teal-400", "from-teal-400 to-emerald-500", "from-emerald-500 to-teal-600"].map(
+                      (g, i) => (
+                        <div
+                          key={i}
+                          className={`w-8 h-8 rounded-full bg-gradient-to-br ${g} border-2 border-white shadow-sm`}
+                        />
+                      )
+                    )}
+                  </div>
+                  <span>
+                    <strong className="text-gray-900">Testimonies</strong> in
+                    every form — written, photos & more
+                  </span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission & Vision */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">

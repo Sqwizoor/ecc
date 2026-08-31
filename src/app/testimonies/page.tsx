@@ -3,8 +3,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import { SmartImage } from "@/components/SmartImage";
+import AudioTestimonial from "@/components/AudioTestimonial";
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { Sparkles, ArrowRight, HeartHandshake, ShieldCheck } from "lucide-react";
 
 const containerStagger: Variants = {
   hidden: { opacity: 0 },
@@ -14,7 +16,7 @@ const containerStagger: Variants = {
       staggerChildren: 0.12,
       delayChildren: 0.1,
     },
-  }, 
+  },
 };
 
 const itemFadeUp: Variants = {
@@ -94,11 +96,148 @@ export default function TestimoniesPage() {
           </motion.div>
         </motion.div>
 
+        {/* Featured Real Healing Testimony */}
         <motion.div
           variants={containerStagger}
           initial="hidden"
           animate="show"
-          className="space-y-6"
+          className="mb-14"
+        >
+          <motion.div
+            variants={itemFadeUp}
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-700 text-white shadow-2xl"
+          >
+            <div className="absolute top-6 right-6 px-4 py-1.5 bg-white/15 backdrop-blur rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+              Featured • Real Story
+            </div>
+            <div className="p-8 md:p-12">
+              <div className="grid lg:grid-cols-2 gap-10 items-center">
+                {/* Photos */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-4">
+                    <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-xl aspect-[3/4]">
+                      <SmartImage
+                        src="/testimonies/burn-before-after.jpeg"
+                        alt="Burn wound before and after God's healing"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                      />
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 backdrop-blur rounded-full text-xs font-semibold text-emerald-700 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      Before & After
+                    </div>
+                  </div>
+                  <div className="space-y-4 pt-6">
+                    <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-xl aspect-[3/4]">
+                      <SmartImage
+                        src="/testimonies/burn-healing-progress.jpeg"
+                        alt="The burn wound during the process of healing"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                      />
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 backdrop-blur rounded-full text-xs font-semibold text-amber-600 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                      In Process of Healing
+                    </div>
+                  </div>
+                </div>
+
+                {/* Story text */}
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-400/20 border border-emerald-300/30 rounded-full text-xs font-semibold text-emerald-100 mb-5">
+                    <HeartHandshake className="w-4 h-4" />
+                    Healed by the Prayer of Bishop Elijah
+                  </div>
+                  <blockquote className="space-y-5">
+                    <p className="text-lg md:text-xl text-emerald-50 leading-relaxed font-light">
+                      "Good day my brothers and sisters in Christ. About months
+                      ago I was burnt by a fan heater... The wound turned into a
+                      third degree burn and got so infected that they told me at
+                      the clinic they were going to <em className="font-semibold text-white">amputate my leg</em> —
+                      until I contacted Bishop Elijah. The man of God prayed for
+                      me for healing... And today my leg is healed completely by
+                      God's grace."
+                    </p>
+                    <footer className="flex items-center gap-4 pt-4 border-t border-white/15">
+                      <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur border border-white/20 flex items-center justify-center text-white font-bold text-lg">
+                        ♥
+                      </div>
+                      <div>
+                        <div className="font-semibold text-white">
+                          A Brother in Christ
+                        </div>
+                        <div className="text-sm text-emerald-200">
+                          Elijah Church of Christ • Healed by Prayer
+                        </div>
+                      </div>
+                    </footer>
+                  </blockquote>
+                  <div className="mt-8 flex flex-wrap items-center gap-4">
+                    <Link
+                      href="https://wa.me/27718499605?text=Hi%20Elijah%20Church%20of%20Christ%2C%20I%20want%20to%20share%20my%20testimony."
+                      target="_blank"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-emerald-700 rounded-full font-semibold shadow-lg hover:bg-emerald-50 transition-colors"
+                    >
+                      Share Your Testimony
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <div className="flex items-center gap-2 text-sm text-emerald-100/80">
+                      <ShieldCheck className="w-4 h-4" />
+                      Real story • Photos shared with permission
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Original written testimony image */}
+          <motion.div
+            variants={itemFadeUp}
+            className="mt-8 max-w-3xl mx-auto"
+          >
+            <div className="text-center mb-4">
+              <div className="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                The original testimony as shared by our brother
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg max-w-md mx-auto aspect-[4/5] bg-gray-50">
+              <SmartImage
+                src="/testimonies/burn-testimony-text.jpeg"
+                alt="Original written testimony of the burn healing shared by a member"
+                fill
+                className="object-contain w-full"
+                sizes="(max-width: 768px) 90vw, 450px"
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Anonymous Audio Testimony */}
+        <AudioTestimonial audioSrc="/testimonies/testimony-audio1.ogg" />
+
+        {/* Leg Healing Audio Testimony with photo */}
+        <div className="mt-10">
+          <AudioTestimonial
+            audioSrc="/testimonies/leg-audio.ogg"
+            imageSrc="/testimonies/leg-testimony.jpeg"
+            imageAlt="Leg healing testimony photo shared by a church member"
+            title="Another Voice of Testimony"
+            description="Another brother or sister in Christ shares what God has done in their life — no name, just the praise. Press play and listen."
+            badge="Anonymous • Leg Healing"
+            accent="amber"
+          />
+        </div>
+
+        <motion.div
+          variants={containerStagger}
+          initial="hidden"
+          animate="show"
+          className="space-y-6 mt-14"
         >
           {reviews.map((review, index) => (
             <motion.div
