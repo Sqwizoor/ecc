@@ -73,7 +73,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} ${exo2.variable}`}>
       <body className={"antialiased bg-white text-gray-900"}>
-        <Navigation />
+       
+        oops no data found
+        {/* <Navigation />
         <main className="min-h-screen">
           <PageTransition>
             {children}
@@ -133,7 +135,7 @@ export default function RootLayout({
               <p className="mt-2 md:mt-0">Built on the foundation of Jesus Christ - Matthew 7:24</p>
             </div>
           </div>
-        </footer>
+        </footer> */}
       </body>
     </html>
   );
